@@ -308,8 +308,14 @@ iframe.content {
 .artlsit {
   padding-top: 10px;
 }
-.artlsit .item .img {
+.artlsit .item {
+  margin-bottom: 5px;
+}
+.artlsit .item:nth-child(odd) .img {
   float: left;
+}
+.artlsit .item .img {
+  float: right;
   margin-right: 10px;
   width: 46%;
   height: auto;
@@ -641,6 +647,34 @@ iframe.content {
   line-height: 34px;
   font-size: 16px;
 }
+.segmented-control {
+  margin-bottom: 15px;
+  border: solid 1px #567fbc;
+  background: transparent;
+}
+.segmented-control a {
+  color: #fff;
+}
+.segmented-control .control-item {
+  background: transparent;
+  color: #567fbc;
+  border: none;
+}
+.segmented-control .control-item.active {
+  color: #fff;
+  background: #567fbc;
+}
+.segmented-control .control-item span {
+  display: inline-block;
+  line-height: 35px;
+}
+.card {
+  margin: 0 auto;
+  padding: 0px;
+  background: transparent;
+  border: none;
+  border-radius: 0px;
+}
 .btn {
   background: #708999;
   border: none;
@@ -673,6 +707,29 @@ iframe.content {
 .quit {
   background: #ff8000;
   color: #fff;
+}
+.iconx {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  line-height: 35px;
+  margin-right: 5px;
+}
+.iconx-1 {
+  background: url("../img/icon-u-1.png") no-repeat top left;
+  background-color: transparent;
+  background-size: cover;
+}
+.iconx-2 {
+  background: url("../img/icon-u-3.png") no-repeat top left;
+  background-color: transparent;
+  background-size: cover;
+}
+.active .iconx-1 {
+  background-image: url("../img/icon-u-2.png");
+}
+.active .iconx-2 {
+  background-image: url("../img/icon-u-4.png");
 }
 @media screen and (max-width: 321px) {
   p {

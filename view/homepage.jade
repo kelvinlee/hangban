@@ -14,14 +14,15 @@ block content_here
 					span(class="#{select}")
 
 		div.content-padded
-			div.noted
-				div.icon
-					img(src="img/noded.png")
-				div.list
-					-for(var i=0;i<users.length;i++)
-						p #{users[i].newtime} #{users[i].username}(#{users[i].mobile})预约试驾成功!
-					//- p 1分钟前 王女士(138****8989)预约试驾成功!
-					//- p 1分钟前 王女士(138****8989)预约试驾成功!
+			-if (users.length>0)
+				div.noted
+					div.icon
+						img(src="img/noded.png")
+					div.list
+						-for(var i=0;i<users.length;i++)
+							p #{users[i].newtime} #{users[i].username}(#{users[i].mobile})预约试驾成功!
+						//- p 1分钟前 王女士(138****8989)预约试驾成功!
+						//- p 1分钟前 王女士(138****8989)预约试驾成功!
 			div.btntrl.clearfix.hide
 				a.active.btn.pull-left(href="/")
 					span.icon

@@ -3,7 +3,10 @@ block content_here
 	.content.userinfobox 
 		ul.table-view
 			li.table-view-cell.user
-				a.navigate-right(href="/user/info")
+				-var url = "/user/center"
+				-if (user.truename != "" && user.truename != null && user.truename.length > 0) {}else{url = "/sign/info"}
+
+				a.navigate-right(href="#{url}")
 					span.media-object.pull-left
 						img(src="/img/avatar.png")
 					.media-body
@@ -14,23 +17,36 @@ block content_here
 
 						h4 #{user.mobile}
 		div.content-padded
-			div.activelist
-				-for(var i=0;i<active.length;i++)
-					-var neworhot = ""
-					-if (active[i].neworhot == 1){ neworhot = "new" }
-					-if (active[i].neworhot == 2){ neworhot = "hot" }
-					div(class="item #{neworhot}")
-						a(href="/active/#{active[i].id}")
-							img(src="#{active[i].url}")
-						.description.clearfix
-							-if (active[i].logo == null)
-								//- div #{active[i].logo}
-							-else
-								div.logo-icon.pull-left
-									img(src="#{active[i].logo}")
-							div.des.pull-left
-								p 预约人数: 
-									span #{active[i].regs}
-									| /人
-								p 活动奖品:
-									span.lot #{active[i].lotext}
+			.segmented-control
+				a.control-item.active(href="#item1mobile") 
+					i.iconx.iconx-1 &nbsp;
+					span 试驾信息
+				a.control-item(href="#item2mobile") 
+					i.iconx.iconx-2 &nbsp;
+					span 中奖信息
+			.card
+				div#item1mobile.control-content.active.activelist
+					-for(var i=0;i<active.length;i++)
+						-var neworhot = ""
+						-if (active[i].neworhot == 1){ neworhot = "new" }
+						-if (active[i].neworhot == 2){ neworhot = "hot" }
+						div(class="item #{neworhot}")
+							a(href="/active/#{active[i].id}")
+								img(src="#{active[i].url}")
+							.description.clearfix
+								-if (active[i].logo == null)
+									//- div #{active[i].logo}
+								-else
+									div.logo-icon.pull-left
+										img(src="#{active[i].logo}")
+								div.des.pull-left
+									p 预约人数: 
+										span #{active[i].regs}
+										| /人
+									p 活动奖品:
+										span.lot #{active[i].lotext}
+				//- 中奖信息
+				div#item2mobile.control-content
+
+
+

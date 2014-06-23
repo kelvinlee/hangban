@@ -143,13 +143,17 @@ exports.homepage = function(req, res, next) {
     if (results[0] != null) {
       return active.getUsers('regdemo_' + results[0].ename, function(err, users) {
         var a, reg, _i, _len;
-        for (_i = 0, _len = users.length; _i < _len; _i++) {
-          a = users[_i];
-          a.newtime = helper.format_date(new Date(a.create_at), true);
-          reg = /(\d{3})\d{4}(\d{4})/;
-          a.mobile = a.mobile.replace(reg, "$1****$2");
+        if (users != null) {
+          for (_i = 0, _len = users.length; _i < _len; _i++) {
+            a = users[_i];
+            a.newtime = helper.format_date(new Date(a.create_at), true);
+            reg = /(\d{3})\d{4}(\d{4})/;
+            a.mobile = a.mobile.replace(reg, "$1****$2");
+          }
+          return ep.emit("users", users);
+        } else {
+          return ep.emit("users", []);
         }
-        return ep.emit("users", users);
       });
     } else {
       return ep.emit("users", []);

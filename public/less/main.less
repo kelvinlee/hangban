@@ -157,8 +157,14 @@ iframe.content {
 .artlsit {
 	padding-top: 10px;
 	.item {
+		margin-bottom: 5px;
+		&:nth-child(odd) {
+			.img {
+				float:left;
+			}
+		}
 		.img {
-			float:left;
+			float:right;
 			margin-right: 10px;
 			.wh(46%);
 		}
@@ -503,8 +509,33 @@ iframe.content {
 		font-size: 16px;
 	}
 }
-
-
+.segmented-control {
+	margin-bottom: 15px;
+	border:solid 1px #567fbc;
+	background: transparent;
+	a {
+		color: #fff;
+	}
+	.control-item {
+		background: transparent;
+		color: #567fbc;
+		border:none;
+		&.active {
+			color: #fff;
+			background: #567fbc;
+		}
+		span {
+			display: inline-block;
+			line-height: 35px;
+		}
+	}
+}
+.card {
+	.mp();
+	background: transparent;
+	border: none;
+	border-radius: 0px;
+}
 
 
 .btn {
@@ -535,6 +566,30 @@ iframe.content {
 	background: #ff8000;
 	color: #fff;
 }
+
+.iconx {
+	.wh(35px,35px);
+	display: inline-block;
+	line-height: 35px;
+	margin-right: 5px;
+}
+.iconx-1 {
+	.b("../img/icon-u-1.png");
+	background-size: cover;
+}
+.iconx-2 {
+	.b("../img/icon-u-3.png");
+	background-size: cover;
+}
+.active {
+	.iconx-1 {
+		background-image: url("../img/icon-u-2.png");
+	}
+	.iconx-2 {
+		background-image: url("../img/icon-u-4.png");
+	}
+}
+
 
 // more than 960
 @media screen and (max-width:321px) {

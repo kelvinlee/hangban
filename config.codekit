@@ -421,6 +421,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/public\/img\/03.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 38496,
+		"inputAbbreviatedPath": "\/public\/img\/03.jpg",
+		"outputAbbreviatedPath": "\/public\/img\/03.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/img\/a-01.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -590,7 +601,7 @@
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 7215,
+		"initialSize": 3226,
 		"inputAbbreviatedPath": "\/public\/img\/avatar.png",
 		"outputAbbreviatedPath": "\/public\/img\/avatar.png",
 		"outputPathIsOutsideProject": 0,
