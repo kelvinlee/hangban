@@ -130,16 +130,14 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/app.js": {
-		"fileType": 64,
-		"ignore": 1,
+	"\/active\/x1\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app.js",
-		"outputAbbreviatedPath": "\/min\/app-ck.js",
+		"inputAbbreviatedPath": "\/active\/x1\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
+		"outputPathIsSetByUser": 0
 		},
 	"\/coffee\/app.coffee": {
 		"createSourceMap": 0,
@@ -253,6 +251,17 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
+		},
+	"\/controllers\/home.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/controllers\/home.js",
+		"outputAbbreviatedPath": "\/controllers\/min\/home-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/controllers\/sign.js": {
 		"fileType": 64,
@@ -586,6 +595,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/public\/img\/art-3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 34389,
+		"inputAbbreviatedPath": "\/public\/img\/art-3.jpg",
+		"outputAbbreviatedPath": "\/public\/img\/art-3.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/art-4.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 32385,
+		"inputAbbreviatedPath": "\/public\/img\/art-4.jpg",
+		"outputAbbreviatedPath": "\/public\/img\/art-4.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/img\/art.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -652,6 +683,50 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/public\/img\/icon-u-1.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1707,
+		"inputAbbreviatedPath": "\/public\/img\/icon-u-1.png",
+		"outputAbbreviatedPath": "\/public\/img\/icon-u-1.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/icon-u-2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1685,
+		"inputAbbreviatedPath": "\/public\/img\/icon-u-2.png",
+		"outputAbbreviatedPath": "\/public\/img\/icon-u-2.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/icon-u-3.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1819,
+		"inputAbbreviatedPath": "\/public\/img\/icon-u-3.png",
+		"outputAbbreviatedPath": "\/public\/img\/icon-u-3.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/icon-u-4.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1670,
+		"inputAbbreviatedPath": "\/public\/img\/icon-u-4.png",
+		"outputAbbreviatedPath": "\/public\/img\/icon-u-4.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/img\/limit1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -670,6 +745,17 @@
 		"initialSize": 22459,
 		"inputAbbreviatedPath": "\/public\/img\/logo-icon.png",
 		"outputAbbreviatedPath": "\/public\/img\/logo-icon.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/logo-icon2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10763,
+		"inputAbbreviatedPath": "\/public\/img\/logo-icon2.png",
+		"outputAbbreviatedPath": "\/public\/img\/logo-icon2.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

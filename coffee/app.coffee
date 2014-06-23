@@ -14,7 +14,9 @@ cookieParser = require('cookie-parser')
 bodyParser = require('body-parser')
 
 app.use cookieParser()
-app.use bodyParser()
+app.use bodyParser.urlencoded
+	extended: true
+app.use bodyParser.json()
 
 # configuration in all env 
 viewsRoot = path.join __dirname, 'view'
