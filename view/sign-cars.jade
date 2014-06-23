@@ -1,0 +1,29 @@
+extends layout
+block content_here
+	.content.userinfobox 
+		ul.table-view
+			li.table-view-cell.user
+				span.media-object.pull-left
+					img(src="/img/avatar.png")
+				.media-body
+					h4 #{user.truename}
+					h4 #{user.mobile}
+		div.content-padded
+			div.btntrl.clearfix
+				a.btn.pull-left(href="/user/lots")
+					span.icon
+					|  我的优惠
+				a.active.btn.pull-right(href="/user/cars")
+					span.icon
+					|  车主优惠
+		form.carsform(action="/sign/cars",method="post")
+			.lot.clearfix
+				textarea
+			.ctrls.clearfix
+				input.pull-right.btn.active(type="button",value="确定")
+				input.pull-right.btn.default(type="button",value="取消")
+		div.info-node
+			div.user-title
+				img(src="/img/user-title.png")
+			div.cont
+				p 通过《航班管家》报名试乘试驾，并成功订购任意车款的会员用户，可在[礼包兑换]->点击[车主优惠]弹出的兑换框中，输入购车发票，验证成功后即可通过《航班管家》手机客户端收取2,000元现金补贴。

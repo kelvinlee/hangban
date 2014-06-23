@@ -1,0 +1,27 @@
+extends layout
+block content_here
+	.content.userinfobox 
+		ul.table-view
+			li.table-view-cell.user
+				span.media-object.pull-left
+					img(src="/img/avatar.png")
+				.media-body
+					-if (user.truename != "" && user.truename != null && user.truename.length > 0)
+						h4 #{user.truename}
+					-else
+						h4
+							a(href="/user/info") 请完善个人资料
+
+					h4 #{user.mobile}
+			li.table-view-cell
+				a.navigate-right(href="/user/info")
+					span.media-object.pull-left.icon.icon-icon-1-09
+					.media-body.zs 个人资料
+			li.table-view-cell
+				a.navigate-right(href="/user/password")
+					span.media-object.pull-left.icon.icon-icon-1-07
+					.media-body.zs 修改密码
+					//- span.badge.badge-warning 2
+
+		.content-padded
+			a.btn.btn-block.quit(href="/sign/out") 退出登录

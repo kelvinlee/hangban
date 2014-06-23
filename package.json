@@ -1,0 +1,20 @@
+{
+  "name": "Hangban",
+  "description": "This is my company website.",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.4.1",
+    "cookie-parser":"*",
+    "body-parser":"*",
+    "mongoose":"*",
+    "mysql":"*",
+    "showdown":"*",
+    "validator":"*",
+    "eventproxy":"*",
+    "node-markdown":"*",
+    "socket.io":"*",
+    "xss":"*", 
+    "jade": "*"
+  }
+}

@@ -1,0 +1,8 @@
+extends layout
+block content_here
+	div.content
+		//- div.ban
+			img(src="#{art.url}")
+		div.content-padded
+			//- h1.art-title #{art.title}
+			div.markdown !{art.content}

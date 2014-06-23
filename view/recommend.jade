@@ -1,0 +1,34 @@
+extends layout
+//- here for homepage
+block content_here
+	div.content
+		.slider#mySlider
+			.slide-group
+				-for(var i=0;i<banner.length;i++)
+					.slide(onclick="gotopage('#{banner[i].href}')")
+						img(src="#{banner[i].url}")
+			.slide-point.white
+				-for(var i=0;i<banner.length;i++)
+					-var select = ""
+					-if (i == 0){select = "on"}
+					span(class="#{select}")
+
+		div.content-padded 
+			div.tools.hide.clearfix
+				a.active.btn.pull-left(href="")
+					span.icon
+					|  车贷计算器
+				a.btn.pull-right(href="")
+					span.icon
+					|  小游戏
+			div.artlsit
+				-for(var i=0;i<art.length;i++)
+					div.item.clearfix
+						a(href="/art/#{art[i].id}")
+							div.img
+								img(src="#{art[i].url}")
+							div.info
+								h2 #{art[i].title}
+								p #{art[i].short}
+
+		//- p here is homepage

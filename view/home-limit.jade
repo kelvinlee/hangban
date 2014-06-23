@@ -1,0 +1,76 @@
+extends layout
+//- here for homepage
+block content_here
+	div.content
+		.slider#mySlider
+			.slide-group
+				-for(var i=0;i<banner.length;i++)
+					.slide(onclick="gotopage('#{banner[i].href}')")
+						img(src="#{banner[i].url}")
+			.slide-point
+				-for(var i=0;i<banner.length;i++)
+					-var select = ""
+					-if (i == 0){select = "on"}
+					span(class="#{select}")
+
+		div.content-padded 
+			div.btntrl.clearfix
+				a.btn.pull-left(href="/")
+					span.icon
+					|  会员独享
+				a.active.btn.pull-right(href="/home/limit")
+					span.icon
+					|  限时抢购
+			-if (limit!=null)
+				div.limit
+					div.img
+						img(src="/img/limit1.jpg")
+					div.times.clearfix(data-time="#{limit.startime}")
+						p.pull-left.sx 活动倒计时:
+						div.miao.pull-right
+							span 0
+						div.mint.pull-right
+							span 0
+						div.hour.pull-right
+							span 0
+						div.day.pull-right
+							span 0
+					div.limit-title.clearfix
+						span.icon.icon-icon-1-03.pull-left
+						h4 试乘试驾预约
+						p 获赠限时秒杀资格
+					-if (user != null)
+						form.form(action="/limit/post/#{limit.id}",method="post",name="limitpost")
+							input(type="text",id="username",name="username",placeholder="姓名",value="#{user.truename}")
+							input(type="text",id="mobile",name="mobile",placeholder="手机号",value="#{user.mobile}")
+							input(type="hidden",name="userid",value="#{user.id}")
+							div.select-group.clearfix
+								select(name="prolander")
+									option(value="") 省份
+								select(name="city")
+									option(value="") 城市 
+							-if (limit.endtime < new Date().getTime())
+								a.btn.readonly.btn-block() 活动结束
+							-else
+								a.btn.btn-positive.btn-block(onclick="limitposts(#{limit.id})") 提 交
+
+					-else
+						form.form(action="/limit/post/#{limit.id}",method="post",name="limitpost")
+							input(type="text",id="username",name="username",placeholder="姓名")
+							input(type="text",id="mobile",name="mobile",placeholder="手机号")
+							input(type="hidden",name="userid",value="")
+							div.select-group.clearfix
+								select(name="prolander")
+									option(value="") 省份
+								select(name="city")
+									option(value="") 城市 
+							-if (limit.endtime < new Date().getTime())
+								a.btn.readonly.btn-block() 活动结束
+							-else
+								a.btn.btn-positive.btn-block(onclick="limitposts(#{limit.id})") 提 交
+
+						
+					
+					
+
+		//- p here is homepage

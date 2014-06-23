@@ -1,0 +1,14 @@
+extends layout
+block content_here
+	div.content
+		div.content-padded
+			div.title-logo
+				img(src="/img/user-signup-title.png")
+			.form-up
+				form(action="/sign/in",method="post",name="login")
+					input(type="text",id="mobile",name="mobile",placeholder="手机号")
+					input.last(type="password",id="password",name="password",placeholder="密码")
+					button.btn.btn-positive.btn-block(type="button",onclick="loginsubmit()") 登 录
+					p 还没有账号?
+						a(href="/sign/up") 现在注册
+	

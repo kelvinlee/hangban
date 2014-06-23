@@ -1,0 +1,51 @@
+extends layout
+//- here for homepage
+block content_here
+	div.content
+		.slider#mySlider
+			.slide-group
+				-for(var i=0;i<banner.length;i++)
+					.slide(onclick="gotopage('#{banner[i].href}')")
+						img(src="#{banner[i].url}")
+			.slide-point
+				-for(var i=0;i<banner.length;i++)
+					-var select = ""
+					-if (i == 0){select = "on"}
+					span(class="#{select}")
+
+		div.content-padded 
+			div.btntrl.clearfix
+				a.btn.pull-left(href="/")
+					span.icon
+					|  会员独享
+				a.active.btn.pull-right(href="/home/limit")
+					span.icon
+					|  限时抢购
+			-if (limit!=null)
+				div.limit
+					div.img
+						img(src="/img/limit1.jpg")
+					div.times.clearfix(data-time="#{limit.startime}")
+						p.pull-left.sx 活动倒计时:
+						div.miao.pull-right
+							span 0
+						div.mint.pull-right
+							span 0
+						div.hour.pull-right
+							span 0
+						div.day.pull-right
+							span 0
+					div.limit-info
+						div.markdown #{limit.description}
+						-if (limit.endtime < new Date().getTime())
+							a.btn.readonly.btn-block() 活动结束
+						-else if(limit.startime < new Date().getTime())
+							a.btn.default.btn-block(type="button",onclick="ressubmit(#{limit.id})") 立即抢购
+						-else
+							a.btn.default.btn-block(type="button") 请等待
+
+						
+					
+					
+
+		//- p here is homepage

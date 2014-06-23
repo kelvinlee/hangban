@@ -1,0 +1,53 @@
+extends layout
+//- here for homepage
+block content_here
+	div.content
+		.slider#mySlider
+			.slide-group
+				-for(var i=0;i<banner.length;i++)
+					.slide(onclick="gotopage('#{banner[i].href}')")
+						img(src="#{banner[i].url}")
+			.slide-point
+				-for(var i=0;i<banner.length;i++)
+					-var select = ""
+					-if (i == 0){select = "on"}
+					span(class="#{select}")
+
+		div.content-padded
+			div.noted
+				div.icon
+					img(src="img/noded.png")
+				div.list
+					-for(var i=0;i<users.length;i++)
+						p #{users[i].newtime} #{users[i].username}(#{users[i].mobile})预约试驾成功!
+					//- p 1分钟前 王女士(138****8989)预约试驾成功!
+					//- p 1分钟前 王女士(138****8989)预约试驾成功!
+			div.btntrl.clearfix.hide
+				a.active.btn.pull-left(href="/")
+					span.icon
+					|  会员独享
+				a.btn.pull-right(href="/home/limit")
+					span.icon
+					|  限时抢购
+			div.activelist
+				-for(var i=0;i<active.length;i++)
+					-var neworhot = ""
+					-if (active[i].neworhot == 1){ neworhot = "new" }
+					-if (active[i].neworhot == 2){ neworhot = "hot" }
+					div(class="item #{neworhot}")
+						a(href="/active/#{active[i].id}")
+							img(src="#{active[i].url}")
+						.description.clearfix
+							-if (active[i].logo == null)
+								//- div #{active[i].logo}
+							-else
+								div.logo-icon.pull-left
+									img(src="#{active[i].logo}")
+							div.des.pull-left
+								p 预约人数: 
+									span #{active[i].regs}
+									| /人
+								p 活动奖品:
+									span.lot #{active[i].lotext}
+
+		//- p here is homepage

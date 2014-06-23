@@ -1,0 +1,77 @@
+@import "less/kelvin.less";
+
+
+html,body {
+	height: 100%;
+}
+.main {
+	.wh(100%);
+	.b("../img/bg.jpg");
+	background-size: contain;
+	padding-top: 223%;
+	position: relative;
+	.form {
+		.tl();
+		.wh(100%);
+		padding-top: 85%;
+		.input-group,.select-group {
+			.mp();
+			.wh(500/640*100%);
+			.b("../img/line.png",no-repeat,bottom,center);
+			height: 40px;
+			background-size: contain;
+			input {
+				background: transparent;
+				border:none;
+				border-radius: 0px;
+				height: 40px;
+				line-height: 40px;
+				padding: 0 15px;
+				outline: none;
+				color: #ffffff;
+				// 00e4ff
+				&::-webkit-input-placeholder {
+					color: #00e4ff;
+				}
+			}
+		}
+		.select-parent {
+			.wh(auto,100%);
+			position: relative;
+			padding:0 15px;
+			line-height: 40px;
+			color: #fff;
+			select {
+				.tl();
+				.wh(100%,100%);
+				opacity: 0;
+			}
+			i {
+				.tr(50%,10px);
+				.wh(0px,0px);
+				margin-top: -5px;
+				border-width:10px;
+				border-style: dashed solid solid dashed;
+				border-color : #ffffff transparent  transparent transparent;
+			}
+		}
+		.select-group {
+			.select-parent {
+				.wh(38%,100%);
+				float:left;
+				&:last-child {
+					float:right;
+				}
+			}
+		}
+		.btn {
+			.mp();
+			.wh(332/640*100%);
+			display: block;
+			margin-top: 20px;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+extends layout
+block content_here
+	.content.userinfobox
+		ul.table-view
+			li.table-view-cell.user
+				span.media-object.pull-left
+					img(src="/img/avatar.png")
+				.media-body
+					-if (user.truename != "" && user.truename != null && user.truename.length > 0)
+						h4 #{user.truename}
+					-else
+						h4 
+							a(href="/user/info") 请完善个人资料
+
+					h4 #{user.mobile}
+		div.content-padded
+			div.title-form.clearfix
+				div.iconx.pull-left
+					img(src="/img/icon-info-title.png")
+				h4 个人资料
+			.form-up
+				-var username = user.truename?user.truename:"";
+				-var adr = user.adr?user.adr:"";
+				form(action="/user/info",method="post")
+					input(type="text",id="truename",name="truename",value="#{username}",placeholder="真实姓名")
+					input(type="text",id="mobile",name="mobile",value="#{user.mobile}",readonly)
+					-var nan = false
+					-var nv = false
+					-if (user.sex == null || user.sex == "男") {nan = true}else{nv = true}
+					div.radio-group
+						label
+							-if (nan)
+								input(type="radio",name="sex",value="1",checked)
+							-else
+								input(type="radio",name="sex",value="1")
+							|  先生
+						label
+							-if (nv)
+								input(type="radio",name="sex",value="0",checked)
+							-else
+								input(type="radio",name="sex",value="0")
+							|  女士
+					input(type="text",id="adr",name="adr",value="#{adr}",placeholder="常用地址")
+					button.btn.btn-block(type="submit") 提交

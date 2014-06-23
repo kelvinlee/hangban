@@ -1,0 +1,35 @@
+extends layout
+block content_here
+	.content.userinfobox 
+		ul.table-view
+			li.table-view-cell.user
+				span.media-object.pull-left
+					img(src="/img/avatar.png")
+				.media-body
+					h4 #{user.truename}
+					h4 #{user.mobile}
+		div.content-padded
+			div.btntrl.clearfix
+				a.active.btn.pull-left(href="/user/lots")
+					span.icon
+					|  我的优惠
+				a.btn.pull-right(href="/user/cars")
+					span.icon
+					|  车主优惠
+		.mylots
+			-for (var i=0;i<limits.length;i++)
+				.lot.clearfix
+					.img.pull-left
+						img(src="#{limits[i].url}")
+					.info.pull-right
+						h4 #{limits[i].title}
+						h4 市场参考价： 
+						p 
+							span ￥
+								|#{limits[i].price}
+							|（剩余7天）
+						-if (limits[i].endtime > new Date().getTime())
+							a.btn(href="/home/limit/#{limits[i].id}") 查看活动
+						-else
+							a.btn.readyonly() 活动已结束
+

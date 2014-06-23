@@ -1,0 +1,36 @@
+extends layout
+block content_here
+	.content.userinfobox 
+		ul.table-view
+			li.table-view-cell.user
+				a.navigate-right(href="/user/info")
+					span.media-object.pull-left
+						img(src="/img/avatar.png")
+					.media-body
+						-if (user.truename != "" && user.truename != null && user.truename.length > 0)
+							h4 #{user.truename}
+						-else
+							h4 请完善个人资料
+
+						h4 #{user.mobile}
+		div.content-padded
+			div.activelist
+				-for(var i=0;i<active.length;i++)
+					-var neworhot = ""
+					-if (active[i].neworhot == 1){ neworhot = "new" }
+					-if (active[i].neworhot == 2){ neworhot = "hot" }
+					div(class="item #{neworhot}")
+						a(href="/active/#{active[i].id}")
+							img(src="#{active[i].url}")
+						.description.clearfix
+							-if (active[i].logo == null)
+								//- div #{active[i].logo}
+							-else
+								div.logo-icon.pull-left
+									img(src="#{active[i].logo}")
+							div.des.pull-left
+								p 预约人数: 
+									span #{active[i].regs}
+									| /人
+								p 活动奖品:
+									span.lot #{active[i].lotext}
