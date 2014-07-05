@@ -10,377 +10,662 @@ var Zepto=function(){function L(t){return null==t?String(t):j[T.call(t)]||"objec
 
 /*
 --------------------------------------------
-     Begin plugs.coffee
---------------------------------------------
- */
-var DMHandler, Giccoo, SHAKE_THRESHOLD, deviceMotionHandler, gico, last_update, last_x, last_y, last_z, submit, userback, _x, _y, _z;
-
-Giccoo = (function() {
-  function Giccoo(name) {
-    this.name = name;
-  }
-
-  Giccoo.prototype.weixin = function(callback) {
-    return document.addEventListener('WeixinJSBridgeReady', callback);
-  };
-
-  Giccoo.prototype.weixinHide = function() {
-    return document.addEventListener('WeixinJSBridgeReady', function() {
-      return WeixinJSBridge.call('hideToolbar');
-    });
-  };
-
-  Giccoo.prototype.cWeek = function(week, pre) {
-    if (pre == null) {
-      pre = "周";
-    }
-    if (week === 1) {
-      return pre + "一";
-    }
-    if (week === 2) {
-      return pre + "二";
-    }
-    if (week === 3) {
-      return pre + "三";
-    }
-    if (week === 4) {
-      return pre + "四";
-    }
-    if (week === 5) {
-      return pre + "五";
-    }
-    if (week === 6) {
-      return pre + "六";
-    }
-    if (week === 0) {
-      return pre + "日";
-    }
-  };
-
-  Giccoo.prototype.getRandom = function(max, min) {
-    return parseInt(Math.random() * (max - min + 1) + min);
-  };
-
-  Giccoo.prototype.getRandoms = function(l, min, max) {
-    var i, idx, isEqu, num, val, _i, _j, _ref;
-    num = new Array();
-    for (i = _i = 0; 0 <= l ? _i < l : _i > l; i = 0 <= l ? ++_i : --_i) {
-      val = Math.ceil(Math.random() * (max - min) + min);
-      isEqu = false;
-      for (idx = _j = 0, _ref = num.length; 0 <= _ref ? _j < _ref : _j > _ref; idx = 0 <= _ref ? ++_j : --_j) {
-        if (num[idx] === val) {
-          isEqu = true;
-          break;
-        }
-      }
-      if (isEqu) {
-        _i--;
-      } else {
-        num[num.length] = val;
-      }
-    }
-    return num;
-  };
-
-  Giccoo.prototype.getParam = function(name) {
-    var r, reg;
-    reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-    r = window.location.search.substr(1).match(reg);
-    if (r !== null) {
-      return unescape(r[2]);
-    }
-    return null;
-  };
-
-  Giccoo.prototype.checkOrientation = function() {
-    var orientationChange, reloadmeta;
-    orientationChange = function() {
-      switch (window.orientation) {
-        case 0:
-          return reloadmeta(640, 0);
-        case 90:
-          return reloadmeta(641, "no");
-        case -90:
-          return reloadmeta(641, "no");
-      }
-    };
-    reloadmeta = function(px, us) {
-      return setTimeout(function() {
-        var viewport;
-        viewport = document.getElementsByName("viewport")[0];
-        return viewport.content = "width=" + px + ", user-scalable=" + us + ", target-densitydpi=device-dpi";
-      }, 100);
-    };
-    window.addEventListener('load', function() {
-      orientationChange();
-      return window.onorientationchange = orientationChange;
-    });
-    return window.addEventListener("load", function() {
-      return setTimeout(function() {
-        return window.scrollTo(0, 1);
-      });
-    });
-  };
-
-  Giccoo.prototype.BindShare = function(content, url, pic) {
-    var $ep, list;
-    if (url == null) {
-      url = window.location.href;
-    }
-    $ep = this;
-    list = {
-      "qweibo": "http://v.t.qq.com/share/share.php?title={title}&url={url}&pic={pic}",
-      "renren": "http://share.renren.com/share/buttonshare?title={title}&link={url}&pic={pic}",
-      "weibo": "http://v.t.sina.com.cn/share/share.php?title={title}&url={url}&pic={pic}",
-      "qzone": "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&title={title}&pic={pic}",
-      "facebook": "http://www.facebook.com/sharer/sharer.php?s=100&p[url]={url}}&p[title]={title}&p[summary]={title}&pic={pic}",
-      "twitter": "https://twitter.com/intent/tweet?text={title}&pic={pic}",
-      "kaixin": "http://www.kaixin001.com/rest/records.php?content={title}&url={url}&pic={pic}",
-      "douban": "http://www.douban.com/share/service?bm=&image={pic}&href={url}&updated=&name={title}"
-    };
-    return $("[data-share]").unbind('click').bind('click', function() {
-      var rep;
-      if ($(this).attr('content')) {
-        rep = $(this).attr('content');
-        content = content.replace('{content}', rep);
-      }
-      return $ep.fShare(list[$(this).data('share')], content, url, pic);
-    });
-  };
-
-  Giccoo.prototype.fShare = function(url, content, sendUrl, pic) {
-    var backUrl, shareContent;
-    if (pic == null) {
-      pic = "";
-    }
-    content = content;
-    shareContent = encodeURIComponent(content);
-    pic = encodeURIComponent(pic);
-    url = url.replace("{title}", shareContent);
-    url = url.replace("{pic}", pic);
-    backUrl = encodeURIComponent(sendUrl);
-    url = url.replace("{url}", backUrl);
-    return window.open(url, '_blank');
-  };
-
-  Giccoo.prototype.fBindRadio = function(e) {
-    var $e;
-    $e = this;
-    return e.each(function(i) {
-      var $div, $i;
-      $div = $('<div>').addClass('radio-parent ' + $(this).attr('class'));
-      $i = $('<i>');
-      $(this).before($div);
-      $div.addClass($(this).attr('class')).append($(this));
-      $div.append($i);
-      if ($(this).is(':checked')) {
-        $div.addClass('on');
-      }
-      return $(this).change(function() {
-        var $o;
-        $o = $(this);
-        $('[name=' + $o.attr('name') + ']').parent().removeClass('on');
-        return setTimeout(function() {
-          if ($o.is(':checked')) {
-            return $o.parent().addClass('on');
-          } else {
-            return $o.parent().removeClass('on');
-          }
-        }, 10);
-      });
-    });
-  };
-
-  Giccoo.prototype.fBindCheckBox = function(e) {
-    var $e;
-    $e = this;
-    return e.each(function(i) {
-      var $div, $i;
-      $div = $('<div>').addClass('checkbox-parent ' + $(this).attr('class'));
-      $i = $('<i>');
-      $(this).before($div);
-      $div.addClass($(this).attr('class')).append($(this));
-      $div.append($i);
-      return $(this).change(function() {
-        var $o;
-        $o = $(this);
-        return setTimeout(function() {
-          if ($o.is(':checked')) {
-            return $o.parent().addClass('on');
-          } else {
-            return $o.parent().removeClass('on');
-          }
-        }, 10);
-      });
-    });
-  };
-
-  Giccoo.prototype.fBindSelect = function(e) {
-    var $e;
-    $e = this;
-    return e.each(function(i) {
-      var $div, $i, $span;
-      $div = $('<div>').addClass('select-parent');
-      $span = $('<span>');
-      $i = $('<i>');
-      $(this).before($div);
-      $div.addClass($(this).attr('class')).append($(this));
-      if ($(this).val()) {
-        $div.append($span.append($(this).find('option[value="' + $(this).val() + '"]').text()));
-      } else {
-        $div.append($span.append($(this).find('option').text()));
-      }
-      $div.append($i);
-      return $(this).change(function() {
-        var $o;
-        $o = $(this);
-        return setTimeout(function() {
-          return $e.fChangeSelectVal($o);
-        }, 10);
-      });
-    });
-  };
-
-  Giccoo.prototype.fChangeSelectVal = function(o) {
-    if ($(o).val()) {
-      return $(o).next().html($(o).find('option[value="' + $(o).val() + '"]').text());
-    } else {
-      return $(o).next().html($(o).find('option').text());
-    }
-  };
-
-  Giccoo.prototype.mobilecheck = function() {
-    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-      return true;
-    }
-    return false;
-  };
-
-  Giccoo.prototype.fBindOrientation = function() {
-    window.addEventListener('deviceorientation', this.orientationListener, false);
-    window.addEventListener('MozOrientation', this.orientationListener, false);
-    return window.addEventListener('devicemotion', this.orientationListener, false);
-  };
-
-  Giccoo.prototype.orientationListener = function(evt) {
-    var alpha, beta, gamma;
-    if (!evt.gamma && !evt.beta) {
-      evt.gamma = evt.x * (180 / Math.PI);
-      evt.beta = evt.y * (180 / Math.PI);
-      evt.alpha = evt.z * (180 / Math.PI);
-    }
-    gamma = evt.gamma;
-    beta = evt.beta;
-    alpha = evt.alpha;
-    if (evt.accelerationIncludingGravity) {
-      gamma = event.accelerationIncludingGravity.x * 10;
-      beta = -event.accelerationIncludingGravity.y * 10;
-      alpha = event.accelerationIncludingGravity.z * 10;
-    }
-    if (this._lastGamma !== gamma || this._lastBeta !== beta) {
-      oriencallback(beta.toFixed(2), gamma.toFixed(2), alpha !== (null ? alpha.toFixed(2) : 0), gamma, beta);
-      this._lastGamma = gamma;
-      return this._lastBeta = beta;
-    }
-  };
-
-  Giccoo.prototype.fBindShake = function() {
-    if (window.DeviceMotionEvent) {
-      return window.addEventListener('devicemotion', deviceMotionHandler, false);
-    }
-  };
-
-  Giccoo.prototype.fUnBindShake = function() {
-    if (window.DeviceMotionEvent) {
-      return window.removeEventListener('devicemotion', deviceMotionHandler, false);
-    }
-  };
-
-  return Giccoo;
-
-})();
-
-SHAKE_THRESHOLD = 1000;
-
-if (navigator.userAgent.indexOf('iPhone') > -1) {
-  SHAKE_THRESHOLD = 700;
-} else if (navigator.userAgent.indexOf('QQ') > -1) {
-  SHAKE_THRESHOLD = 1000;
-}
-
-last_update = 0;
-
-_x = _y = _z = last_x = last_y = last_z = 0;
-
-DMHandler = function() {};
-
-deviceMotionHandler = function(eventData) {
-  var acceleration, curTime, diffTime, speed;
-  acceleration = eventData.accelerationIncludingGravity;
-  curTime = new Date().getTime();
-  if ((curTime - last_update) > 50) {
-    diffTime = parseInt(curTime - last_update);
-    last_update = curTime;
-    _x = acceleration.x;
-    _y = acceleration.y;
-    _z = acceleration.z;
-    speed = Math.abs(_x + _y + _z - last_x - last_y - last_z) / diffTime * 10000;
-    console.log(_x, _y, _z);
-    if (speed > SHAKE_THRESHOLD) {
-      DMHandler();
-    }
-    last_x = _x;
-    last_y = _y;
-    return last_z = _z;
-  }
-};
-
-gico = new Giccoo('normal');
-
-
-/*
---------------------------------------------
      Begin main.coffee
 --------------------------------------------
  */
+var Bar, Barrier, Car, Game2EndFaild, Game2EndSuccess, Game2Start, Game2StartIng, Map, Road, canvas, checkhit, checkhitxy, handleComplete, manilsit, newtime, oldtime, overtime, preload, stage, tick, _Maxspeed, _bararr, _barrnum, _canaddbar, _dom, _gameendtime, _gamestar, _speed;
 
-$(document).ready(function() {
-  gico.fBindSelect($('select'));
-  return submit();
-});
+_dom = {};
 
-userback = function() {
-  console.log(_user);
-  $("[name=username]").val(_user.truename);
-  $("[name=mobile]").val(_user.mobile);
-  return $("[name=uid]").val(_user.id);
+stage = {};
+
+canvas = {};
+
+preload = {};
+
+manilsit = [
+  {
+    id: "g2-bar",
+    src: "img/g2-bar.png"
+  }, {
+    id: "g2-road1",
+    src: "img/g2-road1.jpg"
+  }, {
+    id: "g2-road2",
+    src: "img/g2-road2.jpg"
+  }, {
+    id: "g2-road3",
+    src: "img/g2-road3.jpg"
+  }, {
+    id: "g2-road4",
+    src: "img/g2-road4.jpg"
+  }, {
+    id: "g2-road5",
+    src: "img/g2-road5.jpg"
+  }, {
+    id: "g2-road6",
+    src: "img/g2-road6.jpg"
+  }, {
+    id: "g2-road7",
+    src: "img/g2-road7.jpg"
+  }, {
+    id: "g2-btn",
+    src: "img/g2-btn.png"
+  }, {
+    id: "g2-btn-light",
+    src: "img/g2-btn-light.png"
+  }, {
+    id: "g2-car",
+    src: "img/g2-car.png"
+  }, {
+    id: "g2-icon-js",
+    src: "img/g2-icon-js.png"
+  }, {
+    id: "g2-icon-lz",
+    src: "img/g2-icon-lz.png"
+  }, {
+    id: "g2-icon-timer",
+    src: "img/g2-icon-timer.png"
+  }, {
+    id: "g2-line",
+    src: "img/g2-line.png"
+  }, {
+    id: "g2-smallcar",
+    src: "img/g2-smallcar.png"
+  }, {
+    id: "g2-star",
+    src: "img/g2-star.png"
+  }, {
+    id: "g2-quan",
+    src: "img/g2-quan.png"
+  }
+];
+
+_speed = 20;
+
+_Maxspeed = 35;
+
+_gamestar = false;
+
+_gameendtime = "";
+
+_canaddbar = true;
+
+_barrnum = 1;
+
+_bararr = [];
+
+Game2Start = function() {
+  var cvs, h, messageField, w;
+  window.scrollTo(0, 1);
+  h = document.body.clientHeight * 2;
+  w = document.body.clientWidth * 2;
+  console.log(w, h);
+  if (w > 640) {
+    h = (640 / w) * h;
+    w = 640;
+    if (h < 800) {
+      h = 800;
+    }
+  }
+  cvs = $("<canvas id='canvas' width='" + w + "' height='" + h + "'>");
+  $("#game2").append(cvs);
+  canvas = document.getElementById("canvas");
+  stage = new createjs.Stage(canvas);
+  createjs.Touch.enable(stage);
+  createjs.Ticker.setFPS(30);
+  messageField = new createjs.Text('努力加载中...', 'normal 36px Arial', "#000");
+  messageField.maxWidth = 1000;
+  messageField.textAlign = "center";
+  messageField.lineHeight = 46;
+  messageField.x = canvas.width / 2;
+  messageField.y = canvas.height / 2 - 23;
+  _dom.messageField = messageField;
+  stage.addChild(messageField);
+  stage.update();
+  preload = new createjs.LoadQueue();
+  preload.installPlugin(createjs.Sound);
+  preload.on('complete', handleComplete, this);
+  return preload.loadManifest(manilsit);
 };
 
-submit = function() {
-  return $('[name=submit]').click(function() {
-    if ($('[name=username]').val().length <= 0) {
-      return alert('姓名不能为空');
+oldtime = "";
+
+newtime = "";
+
+handleComplete = function() {
+  _dom.road = new Road();
+  this.bl = new createjs.Shape();
+  this.bl.graphics.beginFill("#000000");
+  this.bl.graphics.drawRect(0, 0, canvas.width, canvas.height);
+
+  _dom.warning = new createjs.Bitmap(preload.getResult("g2-quan"));
+  _dom.warning.h = preload.getResult("g2-quan").height;
+  _dom.warning.x = 18;
+  _dom.warning.y = canvas.height - _dom.warning.h - 60;
+  _dom.warning.alpha = 0;
+
+  _dom.car = new Car();
+  _dom.bar = new Bar();
+  _dom.map = new Map();
+  
+
+  _dom.star = new createjs.Bitmap(preload.getResult("g2-star"));
+  _dom.star.x = (canvas.width - preload.getResult("g2-star").width) / 2;
+  _dom.star.y = (canvas.height - preload.getResult("g2-star").height) / 2;
+
+  _dom.star.addEventListener('click', Game2StartIng);
+  stage.addChild(this.bl, _dom.road.parent, _dom.bar.parent, _dom.map.parent, _dom.car.parent, _dom.star, _dom.warning);
+  stage.update();
+  oldtime = new Date();
+  return createjs.Ticker.addEventListener("tick", tick);
+};
+
+overtime = function() {
+  if (newtime !== "") {
+    return false;
+  }
+  newtime = new Date();
+  _gamestar = false;
+  _dom.car.carend();
+  return (newtime.getTime() - oldtime.getTime()) / 1000;
+};
+
+
+Game2EndSuccess = function() {
+  var used;
+  console.log('win')
+  game2End('win');
+  used = overtime();
+  reSetGame2();
+  return createjs.Ticker.removeEventListener("tick", tick);
+};
+
+Game2EndFaild = function() {
+  var used;
+  used = overtime();
+  game2End('lose');
+  console.log('lose')
+  reSetGame2();
+  return createjs.Ticker.removeEventListener("tick", tick);
+};
+
+tick = function(event) {
+  stage.update(event);
+  if (_dom.warning.alpha != 0) {
+  	_dom.warning.alpha -= 0.08;
+  	if (_dom.warning.alpha < 0.1) {
+  		_dom.warning.alpha = 1;
+  	}
+  }
+  if (_dom.road.parent.y > -10 && _gamestar) {
+    _dom.road.parent.y += _speed;
+    _dom.map.movecar(1 - (_dom.road.parent.y / (20000 - 60 - (canvas.height - _dom.car.car.y))));
+  }
+  if (_gamestar) {
+    _dom.map.timerrun();
+  }
+  if (_dom.road.parent.y >= (20000 - 60 - (canvas.height - _dom.car.car.y)) && _gamestar) {
+    Game2EndSuccess();
+  }
+  if (_speed < _Maxspeed && _gamestar) {
+    _speed += 0.58;
+  }
+  if (_dom.road.parent.y - (canvas.height / 3 * 2) * _barrnum >= 0 && _canaddbar && _gamestar) {
+    _canaddbar = false;
+    _barrnum += 1;
+    _dom.road.addBarrier(_dom.road.parent.y + 30);
+  }
+  if (_gamestar) {
+
+    return checkhit();
+  }
+};
+
+reStartGame2 = function () {
+	go('game2');
+	_dom.road.parent.y = 0;
+	_dom.star.alpha = 1;
+  	_gamestar = true;
+  	_dom.map.timertext.text = '40.00';
+  	_dom.bar.model.text = '公路模式';
+	// Game2StartIng();
+	stage.update();
+	var carimg;
+    carimg = preload.getResult("g2-car");
+	_dom.car.car.x = _dom.car.parent.width / 2 - carimg.width / 2;
+    _dom.car.car.y = _dom.car.parent.height - 350;
+	// return createjs.Ticker.addEventListener("tick", tick);
+};
+
+reSetGame2 = function () {
+	_dom.road.parent.y = 0;
+	_dom.star.alpha = 1;
+	_dom.map.timertext.text = '40.00';
+  	_dom.bar.model.text = '公路模式';
+  	// _gamestar = true;
+	// Game2StartIng();
+	stage.update();
+	var carimg;
+    carimg = preload.getResult("g2-car");
+	_dom.car.car.x = _dom.car.parent.width / 2 - carimg.width / 2;
+    _dom.car.car.y = _dom.car.parent.height - 350;
+}
+
+
+Game2StartIng = function() {
+  _dom.star.alpha = 0;
+  stage.update();
+  $('.game2 .info').css('z-index', '1');
+  $('.game2 .info').css('display', 'block');
+  setTimeout(function () {
+  	_gamestar = true;
+  	$('.game2 .info').css('z-index', '-1');
+  	$('.game2 .info').css('display', 'none');
+  	_gameendtime = new Date().getTime() + 40 * 1000;
+  	var carimg;
+    carimg = preload.getResult("g2-car");
+	_dom.car.car.x = _dom.car.parent.width / 2 - carimg.width / 2;
+    _dom.car.car.y = _dom.car.parent.height - 350;
+	return createjs.Ticker.addEventListener("tick", tick);
+  	// createjs.Ticker.addEventListener("tick", tick);
+  	// _gamestar = true;
+  }, 2000);
+  
+};
+
+checkhit = function() {
+  var a, _i, _len, _results;
+  _results = [];
+  for (_i = 0, _len = _bararr.length; _i < _len; _i++) {
+    a = _bararr[_i];
+    if (checkhitxy(a.x, a.y, preload.getResult("g2-icon-lz").width)) {
+      _results.push(_speed = 10);
+    } else {
+      _results.push(void 0);
     }
-    if ($('[name=mobile]').val().length <= 0) {
-      return alert('手机号码不能为空');
+  }
+  return _results;
+};
+
+checkhitxy = function(x, y, borad) {
+  if (_dom.car.car.x + 80 > x + borad) {
+    return false;
+  }
+  if (_dom.car.car.x + 80 + preload.getResult("g2-car").width < x) {
+    return false;
+  }
+  if (_dom.car.car.y > y + _dom.road.parent.y + borad) {
+    return false;
+  }
+  if (_dom.car.car.y < y + _dom.road.parent.y - preload.getResult("g2-car").height) {
+    return false;
+  }
+  return true;
+};
+
+Road = (function() {
+  function Road(args) {
+    this.args = args;
+    this.parent = new createjs.Container();
+    this.parent.x = canvas.width - 507;
+    this.parent.y = 0;
+    this.initialize();
+  }
+
+  Road.prototype.initialize = function() {
+    var lz;
+    this.road1 = new createjs.Bitmap(preload.getResult("g2-road1"));
+    this.road2 = new createjs.Bitmap(preload.getResult("g2-road2"));
+    this.road3 = new createjs.Bitmap(preload.getResult("g2-road3"));
+    this.road4 = new createjs.Bitmap(preload.getResult("g2-road4"));
+    this.road5 = new createjs.Bitmap(preload.getResult("g2-road5"));
+    this.road6 = new createjs.Bitmap(preload.getResult("g2-road6"));
+    this.road7 = new createjs.Bitmap(preload.getResult("g2-road7"));
+    this.road8 = this.road1.clone();
+    this.road1.y = -(preload.getResult("g2-road1").height - canvas.height);
+    this.road2.y = this.road1.y - preload.getResult("g2-road2").height;
+    this.road3.y = this.road2.y - preload.getResult("g2-road3").height;
+    this.road4.y = this.road3.y - preload.getResult("g2-road4").height;
+    this.road5.y = this.road4.y - preload.getResult("g2-road5").height;
+    this.road6.y = this.road5.y - preload.getResult("g2-road6").height;
+    this.road7.y = this.road6.y - preload.getResult("g2-road7").height;
+    this.road8.y = this.road7.y - preload.getResult("g2-road1").height;
+    this.parent.addChild(this.road1, this.road2, this.road3, this.road4, this.road5, this.road6, this.road7, this.road8);
+    lz = new Barrier({
+      y: 100,
+      x: 170
+    });
+    this.parent.addChild(lz.parent);
+    return _bararr.push(lz.parent);
+  };
+
+  Road.prototype.addBarrier = function(y) {
+    var lz;
+    lz = new Barrier({
+      y: -y,
+      x: _dom.car.car.x + 90
+    });
+    this.parent.addChild(lz.parent);
+    _bararr.push(lz.parent);
+    return _canaddbar = true;
+  };
+
+  return Road;
+
+})();
+
+Map = (function() {
+  function Map(args) {
+    this.args = args;
+    this.parent = new createjs.Container();
+    this.parent.x = 0;
+    this.parent.y = 0;
+    this.parent.width = 207;
+    this.initialize();
+  }
+
+  Map.prototype.initialize = function() {
+    this.timer = new createjs.Bitmap(preload.getResult("g2-icon-timer"));
+    this.timer.x = 40;
+    this.timer.y = 30;
+    this.timertext = new createjs.Text("40.00”", "normal 36px Arial", "#ffffff");
+    this.timertext.maxWidth = this.parent.width;
+    this.timertext.textAlign = "center";
+    this.timertext.x = this.parent.width / 2 - 40;
+    this.timertext.y = 30 + 70;
+    this.line = new createjs.Bitmap(preload.getResult("g2-line"));
+    this.line.x = 30;
+    this.line.y = 160;
+    this.car = new createjs.Bitmap(preload.getResult("g2-smallcar"));
+    this.car.x = 29;
+    this.car.y = preload.getResult("g2-line").height + 160;
+    this.linet1 = new createjs.Text("起点", "normal 16px Arial", "#fff");
+    this.linet2 = new createjs.Text("冰雪路面", "normal 16px Arial", "#fff");
+    this.linet3 = new createjs.Text("沙石路面", "normal 16px Arial", "#fff");
+    this.linet4 = new createjs.Text("泥泞路面", "normal 16px Arial", "#fff");
+    this.linet5 = new createjs.Text("公路路面", "normal 16px Arial", "#fff");
+    this.linet6 = new createjs.Text("终点", "normal 16px Arial", "#fff");
+    this.linet1.x = this.linet2.x = this.linet3.x = this.linet4.x = this.linet5.x = this.linet6.x = preload.getResult("g2-line").width + 40;
+    this.linet1.y = preload.getResult("g2-line").height + 160 - 10;
+    this.linet2.y = preload.getResult("g2-line").height + 160 - 60;
+    this.linet3.y = preload.getResult("g2-line").height + 160 - 158;
+    this.linet4.y = preload.getResult("g2-line").height + 160 - 258;
+    this.linet5.y = preload.getResult("g2-line").height + 160 - 358;
+    this.linet6.y = preload.getResult("g2-line").height + 160 - 408;
+    return this.parent.addChild(this.timer, this.timertext, this.line, this.car, this.linet1, this.linet2, this.linet3, this.linet4, this.linet5, this.linet6);
+  };
+
+  Map.prototype.movecar = function(p) {
+    if (p < 0.9 && p > 0.85) {
+      _dom.bar.modelnode(2);
     }
-    if ($('[name=mobile]').val().length !== 11) {
-      return alert('手机号码必须是11位数字');
+    if (p < 0.78 && p > 0.7) {
+      _dom.bar.modelnode(0);
     }
-    $.ajax({
-      url: $('[name=register]').attr("action"),
-      type: 'POST',
-      data: $('[name=register]').serializeArray(),
-      dataType: 'json',
-      success: function(msg) {
-        console.log(msg);
-        if (msg.recode === 200) {
-          return alert('预约成功');
-        } else {
-          return alert(msg.reason);
-        }
+    if (p < 0.68 && p > 0.6) {
+      _dom.bar.modelnode(3);
+    }
+    if (p < 0.56 && p > 0.5) {
+      _dom.bar.modelnode(0);
+    }
+    if (p < 0.38 && p > 0.3) {
+      _dom.bar.modelnode(4);
+    }
+    if (p < 0.26 && p > 0.2) {
+      _dom.bar.modelnode(0);
+    }
+    if (p < 0.18 && p > 0.1) {
+      _dom.bar.modelnode(1);
+    }
+    if (p < 0.1) {
+      _dom.bar.modelnode(0);
+    }
+    if (p < 0.85 && p > 0.56 && _dom.bar.type !== 2 && _speed > 15) {
+      _speed = 15;
+      _dom.bar.oldtype = 2;
+    }
+    if (p < 0.56 && p > 0.3 && _dom.bar.type !== 3 && _speed > 15) {
+      _speed = 15;
+      _dom.bar.oldtype = 3;
+    }
+    if (p < 0.3 && p > 0.14 && _dom.bar.type !== 4 && _speed > 15) {
+      _speed = 15;
+      _dom.bar.oldtype = 4;
+    }
+    return this.car.y = preload.getResult("g2-line").height * p + 160;
+  };
+
+  Map.prototype.timerrun = function() {
+    var now, over;
+    now = new Date().getTime();
+    over = _gameendtime - now;
+    if (over <= 1) {
+      Game2EndFaild();
+      return this.timertext.text = "0.00”";
+    } else {
+      return this.timertext.text = (Math.round(over / 10) / 100) + "”";
+    }
+  };
+
+  return Map;
+
+})();
+
+Bar = (function() {
+  function Bar(args) {
+    this.args = args;
+    this.parent = new createjs.Container();
+    this.parent.x = 0;
+    this.parent.y = canvas.height - 200;
+    this.initialize();
+  }
+
+  Bar.prototype.initialize = function() {
+    var barimg, p;
+    barimg = preload.getResult("g2-bar");
+    this.bar = new createjs.Bitmap(preload.getResult("g2-bar"));
+    this.btn = new createjs.Bitmap(preload.getResult("g2-btn"));
+    this.btn_light = new createjs.Bitmap(preload.getResult("g2-btn-light"));
+    this.btn_light.x = this.btn.x = 13;
+    this.btn_light.y = this.btn.y = 15;
+    this.model = new createjs.Text("ESP OFF", "normal 26px Arial", "#ff9100");
+    this.model.x = preload.getResult("g2-btn").width / 2 + 12;
+    this.model.y = 150;
+    this.model.maxWidth = preload.getResult("g2-btn").width;
+    this.model.textAlign = "center";
+    this.shape = new createjs.Shape();
+    this.shape.graphics.beginFill("#FF6699");
+    this.mask = new createjs.Shape(this.shape.graphics);
+    this.btn_light.mask = this.mask;
+    this.cmodel(1);
+    this.nodei = new createjs.Bitmap(preload.getResult("g2-icon-js"));
+    this.nodei.x = 200;
+    this.nodei.y = 80;
+    this.nodetext = new createjs.Text("前方冰雪路面!", "normal 38px Arial", "#fff");
+    this.nodetext.x = 300;
+    this.nodetext.y = 85;
+    this.nodetext2 = new createjs.Text("点击左侧按钮切换模式!", "normal 26px Arial", "#fff");
+    this.nodetext2.x = 300;
+    this.nodetext2.y = 85 + 45;
+    this.modelnode(0);
+    this.parent.addChild(this.bar, this.btn, this.btn_light, this.model, this.nodei, this.nodetext, this.nodetext2);
+    p = this;
+    return this.btn.addEventListener('click', function() {
+      if (p.type !== 0) {
+        return p.cmodel(0);
+      } else {
+        return p.cmodel(p.oldtype);
       }
     });
-    return false;
-  });
-};
+  };
+
+  Bar.prototype.cmodel = function(type) {
+    this.type = type;
+    if (type !== 0) {
+      this.oldtype = type;
+    }
+    switch (type) {
+      case 0:
+        this.model.text = "ESP OFF";
+        this.shape.graphics.clear();
+        this.shape.graphics.drawRect(13, 15, preload.getResult("g2-btn").width, preload.getResult("g2-btn").height);
+        this.shape.graphics.arc(13 + 66, 15 + 35, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 96, 15 + 60, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 86, 15 + 90, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 46, 15 + 90, 22, 0, Math.PI * 2, true).closePath();
+        break;
+      case 1:
+        this.model.text = "公路模式";
+
+        this.shape.graphics.clear();
+
+        this.shape.graphics.drawRect(13, 15, preload.getResult("g2-btn").width, preload.getResult("g2-btn").height);
+        this.shape.graphics.arc(13 + 96, 15 + 60, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 86, 15 + 90, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 46, 15 + 90, 22, 0, Math.PI * 2, true).closePath();
+        break;
+      case 2:
+        this.model.text = "雪地模式";
+        this.shape.graphics.clear();
+        this.shape.graphics.drawRect(13, 15, preload.getResult("g2-btn").width, preload.getResult("g2-btn").height);
+        this.shape.graphics.arc(13 + 66, 15 + 35, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 86, 15 + 90, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 46, 15 + 90, 22, 0, Math.PI * 2, true).closePath();
+        break;
+      case 3:
+        this.model.text = "泥地模式";
+        this.shape.graphics.clear();
+        this.shape.graphics.drawRect(13, 15, preload.getResult("g2-btn").width, preload.getResult("g2-btn").height);
+        this.shape.graphics.arc(13 + 66, 15 + 35, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 96, 15 + 60, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 46, 15 + 90, 22, 0, Math.PI * 2, true).closePath();
+        break;
+      case 4:
+        this.model.text = "沙地模式";
+        this.shape.graphics.clear();
+        this.shape.graphics.drawRect(13, 15, preload.getResult("g2-btn").width, preload.getResult("g2-btn").height);
+        this.shape.graphics.arc(13 + 66, 15 + 35, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 96, 15 + 60, 22, 0, Math.PI * 2, true).closePath();
+        this.shape.graphics.arc(13 + 86, 15 + 90, 22, 0, Math.PI * 2, true).closePath();
+    }
+    _dom.warning.alpha = 0;
+    return '';
+  };
+
+  Bar.prototype.modelnode = function(type) {
+    switch (type) {
+      case 0:
+        return this.nodei.alpha = this.nodetext.alpha = this.nodetext2.alpha = 0;
+      case 1:
+        this.nodetext.text = "前方公路路段!";
+        return this.nodei.alpha = this.nodetext.alpha = this.nodetext2.alpha = 1;
+      case 2:
+        this.nodetext.text = "前方雪地路面!";
+        _dom.warning.alpha = 1;
+        return this.nodei.alpha = this.nodetext.alpha = this.nodetext2.alpha = 1;
+      case 3:
+        this.nodetext.text = "前方泥泞路面!";
+        _dom.warning.alpha = 1;
+        return this.nodei.alpha = this.nodetext.alpha = this.nodetext2.alpha = 1;
+      case 4:
+        this.nodetext.text = "前方沙地路面!";
+        _dom.warning.alpha = 1;
+        return this.nodei.alpha = this.nodetext.alpha = this.nodetext2.alpha = 1;
+    }
+  };
+
+  Bar.prototype.nodes = function(type) {};
+
+  return Bar;
+
+})();
+
+Car = (function() {
+  function Car(args) {
+    this.args = args;
+    this.parent = new createjs.Container();
+    this.parent.width = 380;
+    this.parent.height = canvas.height;
+    this.parent.x = 202;
+    this.parent.addEventListener('mousedown', this.movedown);
+    this.parent.addEventListener('pressup', this.moveup);
+    this.parent.addEventListener('pressmove', this.movemove);
+    this.initialize();
+  }
+
+  Car.prototype.initialize = function() {
+    var carimg;
+    carimg = preload.getResult("g2-car");
+    this.car = new createjs.Bitmap(preload.getResult("g2-car"));
+    this.car.x = this.parent.width / 2 - carimg.width / 2;
+    this.car.y = this.parent.height - 350;
+    return this.parent.addChild(this.car);
+  };
+
+  Car.prototype.carend = function() {
+    // this.parent.removeEventListener('mousedown', this.movedown);
+    // this.parent.removeEventListener('pressup', this.moveup);
+    // return this.parent.removeEventListener('pressmove', this.movemove);
+  };
+
+  Car.prototype.movedown = function(evt) {
+    var o;
+    o = evt.target;
+    o.offset = {
+      x: (o.x + 202) - evt.stageX,
+      y: o.y - evt.stageY
+    };
+    return console.log(o.offset);
+  };
+
+  Car.prototype.moveup = function(evt) {
+    var o;
+    o = evt.target;
+    return console.log(o.x, o.y);
+  };
+
+  Car.prototype.movemove = function(evt) {
+    var o, x, y;
+    o = evt.target;
+    x = evt.stageX + o.offset.x - 202;
+    y = evt.stageY + o.offset.y;
+    if (x >= 0 && x <= 307) {
+      o.x = x;
+    }
+    if (y >= 0 && y <= canvas.height - 300) {
+      return o.y = y;
+    }
+  };
+
+  return Car;
+
+})();
+
+Barrier = (function() {
+  function Barrier(args) {
+    this.args = args;
+    this.parent = new createjs.Bitmap(preload.getResult("g2-icon-lz"));
+    this.initialize();
+  }
+
+  Barrier.prototype.initialize = function() {
+    var wz;
+    wz = Math.round(Math.random() * (4 - 1) + 1);
+    console.log(wz);
+    this.parent.y = this.args.y;
+    switch (wz) {
+      case 1:
+        return this.parent.x = 170;
+      case 2:
+        return this.parent.x = 248;
+      case 3:
+        return this.parent.x = 335;
+      case 4:
+        return this.parent.x = this.args.x;
+    }
+  };
+
+  return Barrier;
+
+})();

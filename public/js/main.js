@@ -201,6 +201,9 @@ Giccoo = (function() {
       $(this).before($div);
       $div.addClass($(this).attr('class')).append($(this));
       $div.append($i);
+      if ($(this).is(':checked')) {
+        $div.addClass('on');
+      }
       return $(this).change(function() {
         var $o;
         $o = $(this);

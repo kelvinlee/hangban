@@ -54,7 +54,7 @@ exports.getActives = function(callback) {
     tbname: "active",
     where: "",
     limit: 20,
-    order: "order"
+    order: "order asc"
   }, callback);
 };
 

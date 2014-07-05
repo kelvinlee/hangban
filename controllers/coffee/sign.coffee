@@ -22,7 +22,8 @@ exports.before = (req,res,next)->
 
 exports.userinfo = (req,res,next)->
 	# req.cookies.user = "im kelvin."
-	# console.log req.cookies.user isnt ""
+	# console.log req.cookies.user
+
 	if req.cookies.user? and req.cookies.user isnt ""
 		# console.log req.cookies.user
 		cookie_user = helper.decrypt req.cookies.user,config.secret
@@ -47,8 +48,8 @@ exports.in = (req,res,next)->
 exports.up = (req,res,next)->
 	console.log "注册"
 	cookie_user = helper.encrypt "1\tuser",config.secret
-	console.log user
-	console.log helper.decrypt cookie_user,config.secret
+	# console.log user
+	# console.log helper.decrypt cookie_user,config.secret
 	# reg = {}
 	# reg.username = "a1270989"
 	# reg.password = "9872234"
@@ -91,7 +92,7 @@ exports.uppost = (req,res,next)->
 	data.password = req.body.password
 
 	user.reg data,(err,results)->
-		console.log err,results
+		# console.log err,results
 		cookie_user = helper.encrypt "#{results.insertId}\t\t#{data.mobile}",config.secret
 		res.cookie 'user',cookie_user
 		res.cookie 'id',results.insertId
@@ -101,7 +102,7 @@ exports.post = (req,res,next)->
 	console.log "登录提交",req.body,req.params,res.body
 	re = new helper.recode()
 	user.login req.body.mobile,req.body.password, (err,results)->
-		console.log err,results
+		# console.log err,results
 		if results.length > 0
 			cookie_user = helper.encrypt "#{results[0].id}\t#{results[0].username}\t#{results[0].mobile}",config.secret
 			res.cookie 'user',cookie_user

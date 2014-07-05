@@ -40,7 +40,7 @@ exports.getActives = (callback)->
 		tbname:"active"
 		where: ""
 		limit:20
-		order:"order"
+		order:"order asc"
 	, callback
 exports.getBanner = (callback)->
 	mysql.row_select

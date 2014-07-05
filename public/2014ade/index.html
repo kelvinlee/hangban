@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://mobi.audi.cn/2014ade/ -->
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./2014ade_files/mantis.js" viewport="320" uiunit="em" maxwidth="640"></script><style type="text/css"></style><meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><style type="text/css">body,div {font-size:10px;}
+</style>
+    <link rel="stylesheet" href="http://mobi.audi.cn/2014ade/js/main.css">
+<style type="text/css">body {font-family:Helvetica Neue,Helvetica,STHeiTi,sans-serif;margin:0;padding:0;}
+.aniOBJ {-webkit-transform:translate3D(0,0,0);}
+.NOSELECT {-webkit-user-select:none;}
+.BB {box-sizing:border-box;}
+.BOX,.BOXV,.BOXD,.BOXM{box-sizing:border-box;display:-webkit-box;}
+.BOXV {-webkit-box-orient:vertical;flex-direction:column;}
+.BOXD {-webkit-box-align:end;-webkit-box-pack:center;}
+.BOXM {-webkit-box-align:center;-webkit-box-pack:center;}
+.BOXS {display:block;-webkit-box-flex:1;}
+.P {position:absolute;}
+.R {position:relative;}
+.F {position:absolute;top:0;left:0;bottom:0;right:0;}
+.W {display:block;width:100%;height:auto;}
+.H {display:block;width:auto;height:100%;}
+.MH {display:block;width:auto;min-height:100%;}
+.I {-webkit-appearance:none;}
+.BG {background-repeat:no-repeat;background-size:100% 100%;}
+.BGCOVER {background-repeat:no-repeat;background-size:cover;background-position:center;}
+.BGCONTAIN {background-repeat:no-repeat;background-size:contain;background-position:center;}
+.aniBOX ,.aniOBJ,.ani1ms,.ani2ms,.ani3ms,.ani4ms,.ani5ms,.ani6ms,.ani8ms,.ani1s,.ani15ms.ani2s{-webkit-backface-visibility:hidden;}
+.aniOBJ,.ani1ms,.ani2ms,.ani3ms,.ani4ms,.ani5ms,.ani6ms,.ani8ms,.ani1s,.ani15ms,.ani2s {transition-property:all;}
+.ani3D {-webkit-transform-style:preserve-3d;}
+.ani1ms {transition-duration:100ms;-webkit-animation-duration:100ms;}
+.ani2ms {transition-duration:200ms;-webkit-animation-duration:200ms;}
+.ani3ms {transition-duration:300ms;-webkit-animation-duration:300ms;}
+.ani4ms {transition-duration:400ms;-webkit-animation-duration:400ms;}
+.ani5ms {transition-duration:500ms;-webkit-animation-duration:500ms;}
+.ani6ms {transition-duration:600ms;-webkit-animation-duration:600ms;}
+.ani8ms {transition-duration:800ms;-webkit-animation-duration:800ms;}
+.ani1s {transition-duration:1s;-webkit-animation-duration:1s;}
+.ani15ms {transition-duration:1.5s;-webkit-animation-duration:1.5s;}
+.ani2s {transition-duration:2s;-webkit-animation-duration:2s;}
+.MSLIDERBOX {position:relative;overflow:hidden;-webkit-transform:translate3d(0,0,0);}
+.MSLIDERBOX .MSLIDERITEM {position:absolute;-webkit-transform:translate3d(0,0,0);}
+.MSLIDERPOINTBOX {position:absolute;bottom:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.7);height:1em;text-align:center;}
+.MSLIDERPOINT {display:inline-block;width:1em;height:1em;background:#ddd;margin:0 .5em;border-radius:1em;}
+.SCROLL,.SCROLL-X,.SCROLL-Y {}
+.SCROLL {overflow:auto;}
+.SCROLL-X {overflow-x:auto;overflow-y:hidden;}
+.SCROLL-Y {overflow-x:hidden;overflow-y:auto;}
+.MSCROLLBOX {position:relative;overflow:hidden;}
+.MSCROLLBOX,.MSCROLLER {-webkit-backface-visibility:hidden;-webkit-transform:translate3d(0,0,0);}
+.MSCROLLBOX .MSCROLLER {position:relative;transition-timing-function:cubic-bezier(0.33,0.66,0.66,1);-webkit-transform-origin:0 0;transition-duration:0;transition-property:all;}
+.SCENE{-webkit-transform:translate3D(0,0,0);position:fixed;top:0;left:0;bottom:0;right:0;visibility:hidden;}
+.LAYER {}
+.FRAME,.MHTML {visibility:hidden;}
+.HIDE {display:none;}
+</style><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js"></script><style type="text/css">body .FRAME,body .SCENE {visibility:visible;}
+</style><script type="text/javascript">(function(){
+    var dataForWeixin={
+        appId:	"",
+        img:	"",
+        url:	location.href,
+        title:	"2014驾控汇",
+        desc:	"",
+        fakeid:	""
+    };
+    var onBridgeReady=function(){
+        // 发送给好友;
+        WeixinJSBridge.on('menu:share:appmessage', function(argv){
+            WeixinJSBridge.invoke('sendAppMessage',{
+                "appid":		dataForWeixin.appId,
+                "img_url":		dataForWeixin.img,
+                "img_width":	"120",
+                "img_height":	"120",
+                "link":				dataForWeixin.url,
+                "desc":				dataForWeixin.desc,
+                "title":			dataForWeixin.title
+            }, function(res){});
+        });
+        // 分享到朋友圈;
+        WeixinJSBridge.on('menu:share:timeline', function(argv){
+            WeixinJSBridge.invoke('shareTimeline',{
+                "img_url":dataForWeixin.img,
+                "img_width":"120",
+                "img_height":"120",
+                "link":dataForWeixin.url,
+                "desc":dataForWeixin.desc,
+                "title":dataForWeixin.title
+            }, function(res){});
+        });
+        // 分享到微博;
+        WeixinJSBridge.on('menu:share:weibo', function(argv){
+            WeixinJSBridge.invoke('shareWeibo',{
+                "content":dataForWeixin.title+' '+dataForWeixin.url,
+                "url":dataForWeixin.url
+            }, function(res){});
+        });
+        // 分享到Facebook
+        WeixinJSBridge.on('menu:share:facebook', function(argv){
+            WeixinJSBridge.invoke('shareFB',{
+                "img_url":dataForWeixin.img,
+                "img_width":"120",
+                "img_height":"120",
+                "link":dataForWeixin.url,
+                "desc":dataForWeixin.desc,
+                "title":dataForWeixin.title
+            }, function(res){});
+        });
+    };
+    if(document.addEventListener){
+        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+    }else if(document.attachEvent){
+        document.attachEvent('WeixinJSBridgeReady'   , onBridgeReady);
+        document.attachEvent('onWeixinJSBridgeReady' , onBridgeReady);
+    }
+})();</script><script type="text/javascript" src="./2014ade_files/ip"></script></head>
+<body style="visibility: visible;" class="bg" ontouchmove="return false;" screen_capture_injected="true">
+
+    <div id="loadding-scene" class="SCENE BOXM HIDE" style="-webkit-animation-play-state: paused; transition: all 0ms ease-in 0s; -webkit-transition: all 0ms ease-in 0s; opacity: 1; z-index: 4;">
+        <div id="speed-clock" class="R">
+            <div id="speed-clock-point"></div>
+        </div>
+    </div>
+
+    <div id="start-scene" class="SCENE logo">
+        <img src="./2014ade_files/1.png" class="P W">
+        <img src="./2014ade_files/4.png" class="P">
+        <div id="start-btn" class="P" tap="showScene2"></div>
+    </div>
+
+    <div id="home-scene" class="SCENE HIDE MSCROLLBOX" style="display: block; z-index: 2;">
+        <div id="home-bg" class="F bg" style="opacity: 0; transition: all 0ms ease-in; -webkit-transition: all 0ms ease-in;"></div>
+        <div id="home-scroll" mscroll-y="scrollfn" event-opt="{`bounce`:false}" class="logo MSCROLLER" style="-webkit-transform: matrix(1, 0, 0, 1, 0, 0); -webkit-animation-play-state: paused; transition: 0ms; -webkit-transition: 0ms;">
+            <div id="home-menu" class="P" style="display: none;"><img src="./2014ade_files/9.png" class="P" tap="showScene3"><img src="./2014ade_files/8.png" class="P" tap="showScene4"></div>
+            <div id="home-up" class="P" style="-webkit-transform: translate3d(0px, -100%, 0px); transition: all 0ms ease-in 0s; -webkit-transition: all 0ms ease-in 0s; -webkit-animation-play-state: paused;">
+                <img src="./2014ade_files/6.png" class="W">
+                <div class="btn" tap="showScene2Menu"></div>
+            </div>
+            <div id="home-down" class="P" style="-webkit-transform: translate3d(0px, 100%, 0px); transition: all 0ms ease-in 0s; -webkit-transition: all 0ms ease-in 0s; -webkit-animation-play-state: paused;">
+                <img src="./2014ade_files/7.png" class="W">
+                <div class="btn" tap="showScene5" name="home"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rs7-scene" class="rs7r8-scene rs7 SCENE HIDE MSCROLLBOX">
+        <div id="rs7-scroll" mscroll-y="scrollfn" event-opt="{`bounce`:false}" class="logo MSCROLLER" tap="rs7SceneTap" style="-webkit-transform: matrix(1, 0, 0, 1, 0, 0);">            <img src="./2014ade_files/11.jpg" class="W">            <img id="r8-pic" src="./2014ade_files/26.jpg" class="P W">            <div class="btn btn7"></div><div class="btn btn8"></div><div class="btn btn1"></div><div class="btn btn2"></div><div class="btn btn3"></div><div class="btn btn4"></div>            <div class="footer-menu BOX" tap="footermenuTap"></div>            <div id="rs7-pop" class="pop P"></div>        </div>
+    </div>
+
+    <div id="ade-scene" class="SCENE HIDE MSCROLLBOX" style="display: block; z-index: 3;">
+        <div id="ade-scroll" mscroll-y="scrollfn" event-opt="{`bounce`:false}" class="logo MSCROLLER" role="menu" callback="adeSceneTap" style="-webkit-transform: matrix(1, 0, 0, 1, 0, -144); -webkit-animation-play-state: paused; transition: all 0ms cubic-bezier(0.33, 0.66, 0.66, 1) 0s; -webkit-transition: all 0ms cubic-bezier(0.33, 0.66, 0.66, 1) 0s;">            <img src="./2014ade_files/45.jpg" class="W">            <div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div><div class="btn" role="item"></div>            <div class="footer-menu BOX" style="display:none;" tap="footermenuTap"><div class="item type1"></div><div class="item type4"></div><div class="item type3"></div></div>        </div>
+    </div>
+
+    <div id="ade-inset-scene" class="SCENE bg HIDE MSCROLLBOX" style="display: block; opacity: 1; z-index: 5; transition: all 0ms ease-in; -webkit-transition: all 0ms ease-in;">
+        <div id="ade-inset-scroll" mscroll-y="scrollfn" event-opt="{`bounce`:false}" class="logo MSCROLLER" style="-webkit-transform: matrix(1, 0, 0, 1, 0, 0); -webkit-animation-play-state: paused; transition: all 0ms cubic-bezier(0.33, 0.66, 0.66, 1) 0s; -webkit-transition: all 0ms cubic-bezier(0.33, 0.66, 0.66, 1) 0s;">
+            <img id="ade-inset-bg" src="./2014ade_files/53.jpg" class="W" style="display: block;">
+            <div id="ade-inset-content"><div id="reg-box" class="P reg-box"><input type="hidden" name="uid" value=""><input class="I BB" name="name" placeholder="姓名"><div class="BOX sex" role="menu"><div class="BOXS SELED" role="item" name="sex" value="man">先生</div><div class="BOXS" role="item" name="sex" value="woman">女士</div></div><input class="I BB" name="mobile" placeholder="电话" pattern="[0-9]*"><select class="I BB" name="selactivity" onchange="seledActivity(this)"><option value="">意向参与活动类别</option><option>驾乘体验</option><option>运动车体验</option><option>安全驾驶培训</option><option>冰雪体验</option></select><select class="I BB" id="activityplace" name="activityplace"><option value="">意向参与站点城市</option><option value="">请先选择意向参与活动类别</option></select><select class="I BB" name="mode"><option value="">意向车系</option><option>A1</option><option>A1 Sportback</option><option>A1中国限量版</option><option>A3 Sportback</option><option>A3 Limousine</option><option>A4L</option><option>A4 allroad quattro</option><option>A5 Sportback</option><option>A5 Sportback风尚版</option><option>A5 Coupé</option><option>A5 Coupe风尚版</option><option>A5 Cabriolet</option><option>A5 Cabriolet风尚版</option><option>S5 Sportback</option><option>A5 Coupé</option><option>S5 Cabriolet</option><option>A5 Coupé</option><option>RS5 Cabriolet</option><option>A6L</option><option>A6 hybird</option><option>S6</option><option>A7 Sportback</option><option>S7 Sportback</option><option>RS7 Sportback</option><option>A8L</option><option>A8L W12</option><option>A8L hybird</option><option>S8</option><option>Q3</option><option>Q5</option><option>Q5 hybird</option><option>SQ5</option><option>Q7</option><option>TT Coupé</option><option>TT Coupé特别版</option><option>TT Roadster</option><option>TTS Coupé</option><option>TTS Roadster</option><option>R8 Coupé</option><option>R8 中国专享型</option><option>R8 Spyder</option><option>RS5 Coupé</option><option>RS5 Cabriolet</option><option>RS7 Sportback</option><option>任意一款</option></select><div class="BOX"><select class="I BOXS" id="province" role="provice" target="#city"><option value="">省份</option><option value="北京市" selected="">北京市</option><option value="上海市">上海市</option><option value="天津市">天津市</option><option value="重庆市">重庆市</option><option value="河北省">河北省</option><option value="山西省">山西省</option><option value="内蒙古">内蒙古</option><option value="辽宁省">辽宁省</option><option value="吉林省">吉林省</option><option value="黑龙江省">黑龙江省</option><option value="江苏省">江苏省</option><option value="浙江省">浙江省</option><option value="安徽省">安徽省</option><option value="福建省">福建省</option><option value="江西省">江西省</option><option value="山东省">山东省</option><option value="河南省">河南省</option><option value="湖北省">湖北省</option><option value="湖南省">湖南省</option><option value="广东省">广东省</option><option value="广西壮族自治区">广西壮族自治...</option><option value="海南省">海南省</option><option value="四川省">四川省</option><option value="贵州省">贵州省</option><option value="云南省">云南省</option><option value="陕西省">陕西省</option><option value="甘肃省">甘肃省</option><option value="宁夏回族自治区">宁夏回族自治...</option><option value="青海省">青海省</option><option value="新疆维吾尔族自治区">新疆维吾尔族...</option></select><select class="I BOXS" id="city" role="city" target="#dealer" callback="setDealer"><option value="北京" selected="">北京</option></select></div><select class="I BB" id="dealer" province="北京市" city="北京市"><option value="">经销商选择</option><option>北京博瑞祥云汽车销售服务有限公司</option><option>北京中润发汽车销售有限公司</option><option>北京亚之杰汽车贸易有限责任公司</option><option>北京德奥达汽车销售有限公司</option><option>北京联拓奥通汽车贸易有限责任公司</option><option>北京运通博奥汽车销售服务有限公司</option><option>北京百得利汽车贸易有限公司</option><option>北京百得利奥迪双井CBD展厅</option><option>北京寰宇恒通汽车有限公司</option><option>北京奥吉通汽车销售有限公司</option><option>北京首汽腾迪汽车销售服务有限公司</option><option>北京天润汽车贸易服务有限公司</option><option>北京国服信奥兴汽车有限公司</option><option>北京奥嘉世茂汽车销售服务有限公司</option><option>北京奥之旅汽车销售服务有限公司</option><option>北京国服信奥兴苏州桥奥迪展厅</option><option>北京华阳奥通汽车销售有限公司</option><option>北京东方华奥汽车销售服务有限公司</option><option>北京正德永成汽车贸易服务有限公司</option><option>北京运通嘉奥汽车销售服务有限公司</option><option>北京名尊奥翔汽车销售有限公司</option><option>北京安洋伟业汽车科技有限公司</option></select><div class="text" tap="this.checkcls(SELED)" name="agree" value="true">本人同意一汽-大众奥迪把我的数据用于其它营销、调查和统计目的，并允许一汽-大众奥迪及特许经销商与我联系。</div><img id="reg-submit-btn" src="./2014ade_files/52.png" onclick="subimtRegest()"></div></div>
+            <!-- <div class="footer-menu BOX" tap="footermenuTap">
+                <div class="item type1"></div>
+                <div class="item type4"></div>
+                <div class="item type0"></div>
+            </div> -->
+        </div>
+    </div>
+
+    <div id="ade-pop-scene" class="SCENE HIDE bg MSCROLLBOX">
+        <div id="ade-pop-scroll" mscroll-y="scrollfn" event-opt="{`bounce`:false}" class="logo MSCROLLER" style="-webkit-transform: matrix(1, 0, 0, 1, 0, 0);">
+            <img id="ade-pop-bg" src="" class="W">
+            <div id="ade-pop-content"></div>
+            <div class="footer-menu BOXM" tap="footermenuTap">
+                <div class="item type0"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div id="" class="SCENE MHTML HIDE"></div>-->
+    <script src="./2014ade_files/main.js"></script>
+    <script src="./2014ade_files/mantis.area.js"></script>
+    <script src="./2014ade_files/audi.dealer.js"></script>
+    <script src="/peugeot3008/files/jquery.js"></script>
+    <script src="/js/getuser.js"></script>
+    <script type="text/javascript">
+    function userback() {
+        console.log(_user);
+        $("[name=name]").val(_user.truename);
+        $("[name=mobile]").val(_user.mobile);
+        $("[name=uid]").val(_user.id);
+    }
+    </script>
+
+</body></html>

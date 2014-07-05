@@ -46,8 +46,6 @@ exports.up = function(req, res, next) {
   var cookie_user;
   console.log("注册");
   cookie_user = helper.encrypt("1\tuser", config.secret);
-  console.log(user);
-  console.log(helper.decrypt(cookie_user, config.secret));
   return res.render('sign-up');
 };
 
@@ -80,7 +78,6 @@ exports.uppost = function(req, res, next) {
   data.password = req.body.password;
   return user.reg(data, function(err, results) {
     var cookie_user;
-    console.log(err, results);
     cookie_user = helper.encrypt("" + results.insertId + "\t\t" + data.mobile, config.secret);
     res.cookie('user', cookie_user);
     res.cookie('id', results.insertId);
@@ -94,7 +91,6 @@ exports.post = function(req, res, next) {
   re = new helper.recode();
   return user.login(req.body.mobile, req.body.password, function(err, results) {
     var cookie_user;
-    console.log(err, results);
     if (results.length > 0) {
       cookie_user = helper.encrypt("" + results[0].id + "\t" + results[0].username + "\t" + results[0].mobile, config.secret);
       res.cookie('user', cookie_user);

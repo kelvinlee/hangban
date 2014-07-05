@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://mobi.mconnect.cn/newmondeo-steer/ -->
+<html lang="en" class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <title>指尖上的激情</title>
+        <link rel="stylesheet" href="http://mobi.mconnect.cn/newmondeo-steer/reset.css">
+        <link rel="stylesheet" href="http://mobi.mconnect.cn/newmondeo-steer/main.css">
+        <style>
+            
+            
+            
+
+        </style>
+        
+        <script src="./files/jquery.js"></script>
+        <script src="./files/jquery.mobile.min.js"></script>
+        <script src="./files/address.js"></script>
+        
+        <script>
+            var shareObj = {};
+        </script>
+    <link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js"></script></head>
+    <body screen_capture_injected="true" class="">
+        <img src="./files/wxicon.jpg" style="position:absolute; opacity:0; width:100; height:0;">
+        <div class="load hide">
+            <img src="./files/loading.gif" width="12%">
+        </div> 
+        <div class="game hide">
+            <div class="alt hide">
+                <img src="./files/gamealert.png" width="100%">
+                <div class="btn">
+                    <div class="b1"></div>
+                    <div class="b2"></div>
+                </div>
+            </div>
+            <div class="alt2 hide">
+                <img src="./files/gamealert2.png" width="100%">
+                <div class="btn">
+                    <div class="b1" onclick="go(&#39;end&#39;)"></div>
+                    <div class="b2" onclick="continueGame()"></div>
+                </div>
+            </div>
+        <canvas id="canvas" width="640" height="960"></canvas></div>
+        <div class="wx hide" onclick="go()">
+            <img src="./files/wx.png" width="100%">
+        </div>
+        <div class="form">
+            <img src="./files/form.jpg" width="100%;">
+            <form name="reg">
+                <span class="title">
+                    提交资料
+                </span>
+                <div class="info">
+                    ＊为保证奖品的顺利发放，请务必正确填写您的手机号码和所在城市。
+                </div>
+                <label class="text">
+                    <input type="hidden" name="uid" value="">
+                    <input type="text" name="name" class="inp name" placeholder="真实姓名">
+                </label>
+                <label class="text">
+                    <select class="sel-sex sel" name="sex">
+                        <option>称谓</option>
+                        <option>先生</option>
+                        <option>女士</option>
+                    </select>
+                </label>
+                <label class="text">
+                    <input type="text" name="mobile" class="inp mobile" maxlength="11" placeholder="联系电话">
+                </label>
+                <div class="box">
+                    <label class="text">
+                        <select class="sel-prov sel" name="province"><option>请选择</option><option>安徽</option><option>北京</option><option>福建</option><option>甘肃</option><option>广东</option><option>广西</option><option>贵州</option><option>海南</option><option>河北</option><option>河南</option><option>黑龙江</option><option>湖北</option><option>湖南</option><option>吉林</option><option>江苏</option><option>江西</option><option>辽宁</option><option>内蒙古</option><option>宁夏</option><option>青海</option><option>山东</option><option>山西</option><option>陕西</option><option>上海</option><option>四川</option><option>天津</option><option>西藏</option><option>新疆</option><option>云南</option><option>浙江</option><option>重庆</option></select>
+                    </label>
+                    <div class="margin"></div>
+                    <label class="text">
+                        <select class="sel-city sel" name="city">
+                            <option>城市</option>
+                        </select>
+                    </label>
+                </div>
+                <label class="text">
+                    <select class="sel-cars sel" name="love">
+                        <option>选择车型</option>
+                        <option>1.5L GTDi180舒适型</option>
+                        <option>1.5L GTDi180时尚型</option>
+                        <option>2.0L GTDi200时尚型</option>
+                        <option>2.0L GTDi200豪华型</option>
+                        <option>2.0L GTDi240豪华运动型</option>
+                        <option>2.0L GTDi240至尊型</option>
+                        <option>2.0L GTDi240旗舰型</option>
+                    </select>
+                </label>
+                <div class="submit">
+                    <img src="./files/formbtn.png" width="100%;">
+
+                    <div class="b2" onclick="submitBtn()"></div>
+                </div>
+            </form>
+        </div>
+        <div class="end hide">
+            <div class="absolute wx">
+                <div class="score">
+                    <div class="red">1.66秒</div>
+                    <div class="best">最佳：1.66秒</div>
+                </div>
+                <div class="text">这肯定不是你的真正实力，握紧方向盘，重新启动再试一次！GO！</div>
+                <div class="btn">
+                    <img src="./files/endbtn.png" width="100%;">
+                    <div class="b">
+                        <div class="b1" onclick="reTry();"></div>
+                        <div class="b2" onclick="go(&#39;form&#39;)"></div>
+                        <div class="b3" onclick="checkWx()">
+                        </div>
+                    </div>
+                </div>
+                <div class="share s1">
+                    <img src="./files/share.png" width="100%;">
+                    <div class="link">
+                        <div class="l" data-link="weibo"></div>
+                        <div class="l" data-link="qzone"></div>
+                        <div onclick="go(&#39;wx&#39;, 1)"></div>
+                        <div class="l" data-link="qweibo"></div>
+                        <div class="l" data-link="douban"></div>
+                        <div class="l" data-link="renren"></div>
+                    </div>
+                </div>
+                <div class="share s2">
+                    <img src="./files/share2.png" width="100%;">
+                    <div class="link">
+                        <div class="l" data-link="weibo"></div>
+                        <div class="l" data-link="qzone"></div>
+                        <div class="l" data-link="qweibo"></div>
+                        <div class="l" data-link="douban"></div>
+                        <div class="l" data-link="renren"></div>
+                    </div>
+                </div>
+                <div class="images">
+                    <div class="content">
+                        <div class="ul" data-i="0">
+                            <div class="li">
+                                <a href="http://v.youku.com/v_show/id_XNzIzMTg5ODA4.html" target="_blank">
+                                    <img src="./files/001.png" width="85%">
+                                </a>
+                            </div>
+                            <div class="li">
+                                <a href="http://v.youku.com/v_show/id_XNzIzMTg4MTgw.html" target="_blank">
+                                    <img src="./files/002.png" width="90%">
+                                </a>
+                            </div>
+                            <div class="li">
+                                <a href="http://v.youku.com/v_show/id_XNzIzMTc5MTEy.html" target="_blank">
+                                    <img src="./files/003.png" width="90%">
+                                </a>
+                            </div>
+                            <div class="li">
+                                <a href="http://v.youku.com/v_show/id_XNzIzMTc3MzQ4.html" target="_blank">
+                                    <img src="./files/004.png" width="90%">
+                                </a>
+                            </div>
+                            <div class="li">
+                                <a href="http://v.youku.com/v_show/id_XNzIzMTc5ODMy.html" target="_blank">
+                                    <img src="./files/005.png" width="90%">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pre"></div>
+                    <div class="next"></div>
+                </div>
+            </div>
+            <img src="./files/end.jpg" width="100%">
+        </div>
+        <script src="./files/main.js"></script>
+        <script src="/js/getuser.js"></script>
+        <script type="text/javascript">
+        function userback() {
+            console.log(_user);
+            $("[name=name]").val(_user.truename);
+            $("[name=mobile]").val(_user.mobile);
+            $("[name=uid]").val(_user.id);
+        }
+        </script>
+</body></html>
