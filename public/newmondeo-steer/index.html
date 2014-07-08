@@ -61,7 +61,7 @@
                 </div>
                 <label class="text">
                     <input type="hidden" name="uid" value="">
-                    <input type="text" name="name" class="inp name" placeholder="真实姓名">
+                    <input type="text" name="username" class="inp name" placeholder="真实姓名">
                 </label>
                 <label class="text">
                     <select class="sel-sex sel" name="sex">
@@ -85,7 +85,7 @@
                     </label>
                 </div>
                 <label class="text">
-                    <select class="sel-cars sel" name="love">
+                    <select class="sel-cars sel" name="cartype">
                         <option>选择车型</option>
                         <option>1.5L GTDi180舒适型</option>
                         <option>1.5L GTDi180时尚型</option>
@@ -181,7 +181,7 @@
         <script type="text/javascript">
         function userback() {
             console.log(_user);
-            $("[name=name]").val(_user.truename);
+            $("[name=username]").val(_user.truename);
             $("[name=mobile]").val(_user.mobile);
             $("[name=uid]").val(_user.id);
         }

@@ -13,7 +13,7 @@ exports.login = (mobile,password,callback)->
 		where: "`mobile` = '#{mobile}' and `password` = '#{password}'"
 	, callback
 exports.getUserActive = (id,callback)->
-	sql = "select active.* from useractive left join active on useractive.aid = active.id where useractive.uid = #{id}"
+	sql = "select active.* from useractive left join active on useractive.aid = active.id where useractive.uid = #{id} order by useractive.id desc"
 	mysql.query sql,callback
 
 exports.getUser = (id,callback)->

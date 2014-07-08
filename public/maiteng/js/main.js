@@ -13,7 +13,7 @@ var Zepto=function(){function L(t){return null==t?String(t):j[T.call(t)]||"objec
      Begin plugs.coffee
 --------------------------------------------
  */
-var DMHandler, Giccoo, SHAKE_THRESHOLD, deviceMotionHandler, gico, last_update, last_x, last_y, last_z, submit, userback, _x, _y, _z;
+var DMHandler, Giccoo, SHAKE_THRESHOLD, deviceMotionHandler, gico, last_update, last_x, last_y, last_z, myK, submit, userback, _x, _y, _z;
 
 Giccoo = (function() {
   function Giccoo(name) {
@@ -348,9 +348,30 @@ gico = new Giccoo('normal');
  */
 
 $(document).ready(function() {
+  myK("province").innerHTML = fGetHTMLP();
+  myK("city").innerHTML = fGetHTMLC(myK("province").value);
+  myK("dealer").innerHTML = fGetHTMLS(myK("province").value, myK("city").value);
+  myK("province").onchange = function() {
+    return setTimeout(function() {
+      myK("city").innerHTML = fGetHTMLC(myK("province").value);
+      myK("dealer").innerHTML = fGetHTMLS(myK("province").value, myK("city").value);
+      $('#city').change();
+      return $('#dealer').change();
+    }, 20);
+  };
+  myK("city").onchange = function() {
+    return setTimeout(function() {
+      myK("dealer").innerHTML = fGetHTMLS(myK("province").value, myK("city").value);
+      return $('#dealer').change();
+    }, 20);
+  };
   gico.fBindSelect($('select'));
   return submit();
 });
+
+myK = function(id) {
+  return document.getElementById(id);
+};
 
 userback = function() {
   console.log(_user);

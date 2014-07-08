@@ -66,10 +66,10 @@
         </div>
         <div class="form">
             <img src="./files/form.jpg" width="100%">
-            <form name="reg">
+            <form name="reg" action="/active/join/5">
                 <label class="text">
                     <input type="hidden" name="uid" value="">
-                    <input type="text" name="name" class="inp name" placeholderd="真实姓名">
+                    <input type="text" name="username" class="inp name" placeholderd="真实姓名">
                 </label>
                 <div class="box">
                     <div class="sex act">先生</div>
@@ -343,9 +343,18 @@
         <script src="./files/main(1).js"></script>
         <script src="/js/getuser.js"></script>
         <script type="text/javascript">
+        $(document).ready(function(){
+            reset($("body"));
+        });
+        function reset (o) {
+           console.log(parent.window);
+           if (parent.window.resetFrame != null) {
+            parent.window.resetFrame($(o).height());
+           }
+        }
         function userback() {
             console.log(_user);
-            $("[name=name]").val(_user.truename);
+            $("[name=username]").val(_user.truename);
             $("[name=mobile]").val(_user.mobile);
             $("[name=uid]").val(_user.id);
         }

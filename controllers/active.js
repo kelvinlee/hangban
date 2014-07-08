@@ -16,7 +16,7 @@ active = require('../model/active');
 exports.before = function(req, res, next) {};
 
 exports.joina = function(req, res, next) {
-  var aid, data, re, uid;
+  var aid, check, data, re, uid;
   re = new helper.recode();
   data = {};
   data.username = req.body.username;
@@ -43,10 +43,15 @@ exports.joina = function(req, res, next) {
     re.recode = 203;
     re.reason = "手机号码格式不正确";
   }
+  check = /^[1][3-8]\d{9}$/;
+  if (!check.test(data.mobile)) {
+    re.recode = 204;
+    re.reason = "请验证手机号码格式";
+  }
   aid = req.params.active_id;
   console.log(data);
   if (re.recode !== 200) {
-    res.send(re);
+    return res.send(re);
   }
   uid = req.body.uid;
   if (uid != null) {
@@ -64,11 +69,19 @@ exports.joina = function(req, res, next) {
     });
     return '';
   } else {
-    active.joinactivenou(aid, data, function(err, results) {
-      return console.log("a:", err, results);
+    return active.checkmobile(aid, data.mobile, function(err, u) {
+      if (u.length > 0) {
+        re.recode = 301;
+        re.reason = "您已经参与过此活动了";
+        return res.send(re);
+      } else {
+        return active.joinactivenou(aid, data, function(err, results) {
+          console.log("a:", err, results);
+          return res.send(re);
+        });
+      }
     });
   }
-  return res.send(re);
 };
 
 exports.homepage = function(req, res, next) {

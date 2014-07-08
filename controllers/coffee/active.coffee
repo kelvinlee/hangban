@@ -40,6 +40,10 @@ exports.joina = (req,res,next)->
 	if data.mobile.length isnt 11
 		re.recode = 203
 		re.reason = "手机号码格式不正确"
+	check = /^[1][3-8]\d{9}$/
+	if not check.test data.mobile
+		re.recode = 204
+		re.reason = "请验证手机号码格式"
 	# if not data.prolander?
 	# 	re.recode = 203
 	# 	re.reason = "请选择省份"
@@ -54,7 +58,7 @@ exports.joina = (req,res,next)->
 
 
 	if re.recode isnt 200
-		res.send re
+		return res.send re
 	# else
 	# 	res.send re
 	# return ''
@@ -71,9 +75,15 @@ exports.joina = (req,res,next)->
 					res.send re
 		return ''
 	else
-		active.joinactivenou aid,data,(err,results)->
-			console.log "a:",err,results
-	res.send re
+		active.checkmobile aid,data.mobile,(err,u) ->
+			if u.length > 0
+				re.recode = 301
+				re.reason = "您已经参与过此活动了"
+				res.send re
+			else
+				active.joinactivenou aid,data,(err,results)->
+					console.log "a:",err,results
+					res.send re
 	
 exports.homepage = (req,res,next)->
 	# 活动主页.

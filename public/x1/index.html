@@ -1,19 +1,465 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <title>宝马X1</title>
+        <link rel="stylesheet" href="./reset.css">
+        <link rel="stylesheet" href="./main.css">
+        <style>
+            body{
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                -webkit-user-select: none;
+                /*background-color: #000;*/
+            }
+            img, ul, li, a{
+                display: block;
+            }
+            body>div{
+                position: relative;
+                -webkit-transition: all .6s ease;
+                z-index: 1;
+                background-color: rgba(0,0,0,.6);
+            }
+            a{
+                color: #0f3649;
+                text-decoration: none;
+                display: inline;
+            }
+            .body{
+                position: relative;
+            }
+            .body .form {
+                position: absolute;
+                top: 42%;
+                width: 74%;
+                /*height: 19%;*/
+                background: url(img/form.png) no-repeat center top;
+                background-size: 100%;
+                left: 13%;
+            }
+            .form {
+                position: absolute;
+                width: 100%;
+                top: 29%;
+                /*min-height: 100%;*/
+                /*background-color: #fff;*/
+            }
+            .form form{
+                position: absolute;
+                /*top: 16%;*/
+                width: 90%;
+                left: 5%;
+                color: #fff;
+            }
+            .form .btn{
+                position: absolute;
+                width: 25%;
+                height: 15%;
+                top: 0;
+                right: 0;
+            }
+            .form, .form label{
+                font-size: .7em;
+            }
+            .form, .form label>div{
+                line-height: 1.7em;
+            }
+            .form form>span{
+                font-size: 2em;
+            }
+            .form .info{
+                font-size: 1em;
+            }
+            .none {
+                display: none !important;
+            }
+            .form .box .sex{
+                font-size: 1rem;
+                position: relative;
+                width: 47%;
+                display: block;
+                /*background: #fff;*/
+                box-sizing: border-box;
+                padding: .4rem;
+                color: #0f3649;
+                margin: 3% 0 0;
+                text-align: center;
+                border: 1px solid #0f3649;
+            }
+            .form .box .sex.act{
+                background: #0f3649;
+                color: #fff;
 
-    <title>宝马x1</title>
+            }
+            .form .box{
+                display: -webkit-box;
+            }
+            .form .box .margin{
+                -webkit-box-flex:1;
+            }
+            .form .box label{
+                position: relative;
+                width: 49%;
+                display: block;
+            }
+            .form label{
+                width: 100%;
+            }
+            .form .submit{
+                position: relative;
+                /*width: 40%;*/
+                margin: 5% 0 0 0;
+                /*float: right;*/
+            }
+            .form .submit>div{
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 47%;
+            }
+            .form .submit .b1{
+                left: 0;
+            }
+            .form .submit .b2{
+                right: 0;
+            }
+            .form .bg{
+                position: absolute;
+                width: 65%;
+                height: 25%;
+                bottom: 0;
+                right: 0;
+            }
+            label.text {
+                margin: 3% 0 0;
+                display: block;
+            }
+            .sel{
+                background-image: url(img/sel.png);
+                background-repeat: no-repeat;
+                background-size: auto 50%;
+                background-position: 96% center;
+            }
+            .sel{
+                /*box-shadow: 0px 0px 6px #999999 inset;*/
+                background-color: transparent;
+                -webkit-appearance: none;
+                box-sizing: border-box;
+                padding: .4rem;
+                width: 100%;
+                /*height: 19px;*/
+                border: 1px solid #0f3649;
+                border-radius: 0;
+                text-indent: 10px;
+                /*border-radius: 3px;*/
+            }
+            .inp{
+                background-color: transparent;
+                -webkit-appearance: none;
+                box-sizing: border-box;
+                padding: .4rem;
+                width: 100%;
+                /* height: 19px; */
+                /* border: 1px solid #888; */
+                /* border-radius: 0; */
+                text-indent: 43%;
+                /* border-radius: 3px; */
+                border-style: none;
+                border-bottom: 1px solid #0f3649;
+            }
+
+            .form .label{
+                font-size: 1em;
+                background-image: url(img/box.png);
+                background-size: 8%;
+                background-repeat: no-repeat;
+            }
+            .form .label.act{
+                background-image: url(img/box2.png);
+            }
+            .form .label input[type="checkbox"]{
+                visibility: hidden;
+                margin-right: .7em;
+            }
+            .form .check{
+                display: block;
+                height: 2em;
+                line-height: 2em;
+                margin: 3% 0 0;
+                color: #0f3649;
+            }
+            .sel-plan{
+                width: 60%;
+                float: right;
+            }
+            .plantext{
+                color: #000;
+                font-size: 1rem;
+                padding-top: 1%;
+                box-sizing: border-box;
+            }
+            .name {
+                background-image: url(img/name.png);
+                background-repeat: no-repeat;
+                background-size: auto 70%;
+                background-position: 5% center;
+            }
+            .mobile {
+                background-image: url(img/mobile.png);
+                background-repeat: no-repeat;
+                background-size: auto 70%;
+                background-position: 5% center;
+            }
+            .info{
+                position: absolute;
+                width: 49%;
+                height: 7%;
+                top: 35%;
+                right: 3%;
+            }
+            .info a{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+
+        </style>
+        <script src="jquery.js"></script>
+        <script src="address.js"></script>
+        <script>
+            
+        </script>
+    </head>
     <body>
-      <div class="main">
-        活动正在筹备中..
-      </div>
+        <div class="body">
+            <div class="info">
+                <a href="#"></a>
+            </div>
+            <img src="img/form.jpg" width="100%">
+            <div class="form">
+                <form name="reg">
+                    <label class="text">
+                        <input type="hidden" name="uid" value="" />
+                        <input type="text" name="username" class="inp name" maxLength="11">
+                    </label>
+                    <div class="box">
+                        <div class="sex act">先生</div>
+                        <div class="margin"></div>
+                        <div class="sex">女士</div>
+                        <label class="none">
+                            <input type="radio" name="sex" value="先生" class="sex-b">
+                            <input type="radio" name="sex" value="女士" class="sex-g">
+                        </label>
+                    </div>
+                    
+                    <div class="box">
+                        <label class="text">
+                            <select class="sel-prov sel" name="province">
+                                <option>省份</option>
+                            </select>
+                        </label>
+                        <div class="margin"></div>
+                        <label class="text">
+                            <select class="sel-city sel" name="city">
+                                <option>城市</option>
+                            </select>
+                        </label>
+                    </div>
+                    <label class="text">
+                        <select class="sel-dealer sel" name="dealer">
+                            <option>经销商</option>
+                        </select>
+                    </label>
+
+                    <label class="text">
+                        <input type="text" name="mobile" class="inp mobile" maxLength="11">
+                    </label>
+                    <label class="text">
+                        
+                        <select class="sel-plan sel" name="plan">
+                            <option>时间</option>
+                            <option>1周内</option>
+                            <option>2周内</option>
+                            <option>1个月内</option>
+                            <option>2个月内</option>
+                            <option>6个月内</option>
+                            <option>不确定</option>
+                        </select>
+                        <div class="plantext">计划购车:</div>
+                    </label>
+                    <label class="label check act">
+                        <input data-role="none" name="ystl" checked type="checkbox" class="checkbox">您已阅读并同意<a href="">宝马个人信息保护法律声明</a><br>
+                    </label>
+                    <div class="submit">
+                        <img src="img/submit.png" width="100%;">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="/js/getuser.js"></script>
+        <script>
+            userback = function() { 
+              $("[name=username]").val(_user.truename);
+              $("[name=mobile]").val(_user.mobile);
+              $("[name=uid]").val(_user.id);
+            };
+            $(document).ready(function () {
+                // searchAjax("13793653511");
+                fullSel(_p, $('.sel-prov'), '省份');
+                $('.sel-prov').on('change', fullCity);
+                $('.sel-city').on('change', fullCompany);
+                $('.submit').on('click', subForm);
+                // $('.succ, .fail').on('tap', closeAlt);
+                $('.box .sex').on('click', selsex);
+                $('.label').on('click', boxTap);
+            });
+
+            var selsex = function () {
+                var arr = $('.box .sex'),
+                    dom = $(this);
+                $('.box .sex').removeClass('act')
+                dom.addClass('act');
+                if (dom.html() == "先生") {
+                    $('.sex-b')[0].checked = true;
+                }
+                if (dom.html() == "女士") {
+                    $('.sex-g')[0].checked = true;
+                }
+            };
+
+            var boxTap = function (e) {
+                var bool;
+                bool = $('input', this)[0].checked;
+                console.log(bool)
+
+                if (bool) {
+                    $(this).addClass('act');
+                    // $('.sel-dealer').css('background-color', '#fff');
+                } else {
+                    $(this).removeClass('act');
+                    // $('.sel-dealer').css('background-color', '#ccc');
+                }
+            };
+            var closeAlt = function () {
+                $(this).addClass('hide');
+            }
+            function checkTel(tel) {
+               var mobile = /^1[3|5|8]\d{9}$/ , phone = /^0\d{2,3}-?\d{7,8}$/;
+               return mobile.test(tel) || phone.test(tel);
+            }
+            var subForm = function () {
+                if (!checkTel($('.mobile').val())) {
+                    alert('手机号格式不正确');
+                    return;
+                }
+                if (!$('.name').val() || $('.name').val()=="请选择") {
+                    alert('“姓名*”不能为空！');
+                    return;
+                }
+                
+                
+                if (!$('.mobile').val() || $('.mobile').val()=="请选择") {
+                    alert('“手机号*”不能为空！');
+                    return;
+                }
+                
+                if (!$('.sel-prov').val() || $('.sel-prov').val()=="省份") {
+                    alert('“省份*”不能为空！');
+                    return;
+                }
+                if (!$('.sel-city').val() || $('.sel-city').val()=="城市") {
+                    alert('“城市*”不能为空！');
+                    return;
+                }
+                
+                if (!$('.sel-dealer').val() || $('.sel-dealer').val()=="经销商") {
+                    alert('“经销商*”不能为空！');
+                    return;
+                }
+                // if (!$('.sel-cartype').val() || $('.sel-cartype').val()=="试驾车型") {
+                //     alert('“试驾车型*”不能为空！');
+                //     return;
+                // }
+                if (!$('.sel-plan').val() || $('.sel-plan').val()=="预计购车时间") {
+                    alert('“预计购车时间*”不能为空！');
+                    return;
+                }
+
+                if ($('[name=ystl]:checked').length<=0) {
+                    alert('“我已阅读法律条款*请勾选！');
+                    return; 
+                }
+                
+                // if (!$('.sel-callme').val() || $('.sel-callme').val()=="首选联络时间") {
+                //     alert('“首选联络时间*”不能为空！');
+                //     return;
+                // }
+                // console.log($('[name=register]').serializeArray());
+                $.ajax({
+                    url: "/active/join/8",
+                    type: "POST",
+                    data: $('[name=reg]').serializeArray(),
+                    dataType: 'json', 
+                    success: function(msg){
+                        if (msg.recode === 200) {
+                          return alert('预约成功');
+                        } else {
+                          return alert(msg.reason);
+                        }
+                    }
+                });
+                // backtap();
+                // alert('信息已提交！');
+
+            };
+            
+
+            var fullSel = function (arr, dom, str) {
+                var a = arr;
+                var html = '<option>'+(str?str:'请选择')+'</option>';
+                for (var i = 0, len = a.length; i < len; i ++) {
+                    if ($.isArray(a[i])) {
+                        html += '<option value='+a[i][1]+'>'+a[i][0]+'</option>';
+                    } else {
+                        html += '<option>'+a[i]+'</option>';                        
+                    }
+                }
+                dom.html(html);
+            };
+
+            var currProvince = null;
+            var fullCity = function (e) {
+                var obj,
+                    str = $(this).val(),
+                    arr = [];
+
+                if (!_pc[str]) { return; }
+                
+                currProvince = str;
+                obj = _pc[str];
+                for (var i in obj) {
+                    arr.push(i);
+                }
+                fullSel(arr, $('.sel-city'), '城市');
+            };
+            var fullCompany = function (e) {
+                var city, arr;
+                if (!_pc[currProvince]) { return; }
+                city = $(this).val();
+                if (!_pc[currProvince][city]) { return; }
+                arr = _pc[currProvince][city];
+                fullSel(arr, $('.sel-dealer'), '经销商');
+            };
+            
+        </script>
     </body>
-  </head>
 </html>

@@ -18,7 +18,7 @@ exports.login = function(mobile, password, callback) {
 
 exports.getUserActive = function(id, callback) {
   var sql;
-  sql = "select active.* from useractive left join active on useractive.aid = active.id where useractive.uid = " + id;
+  sql = "select active.* from useractive left join active on useractive.aid = active.id where useractive.uid = " + id + " order by useractive.id desc";
   return mysql.query(sql, callback);
 };
 

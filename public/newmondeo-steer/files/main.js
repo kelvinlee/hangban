@@ -1,4 +1,4 @@
-window.onload = function () {
+$(document).ready(function () {
     // init();
     var arr;
     resizeObj();
@@ -16,7 +16,7 @@ window.onload = function () {
     if (arr && arr[0] == '#retry') {
         reTry();
     }
-}
+});
 var checkWx = function () {
     if (typeof WeixinJSBridge == "undefined") {
         alert('请在微信中打开')
@@ -166,14 +166,19 @@ var submitBtn = function () {
     //     alert('“您是否需要与经销商联系*”不能为空！');
     //     return;
     // }
-    // console.log($('[name=register]').serializeArray());
+    console.log($('[name=register]').serializeArray());
     $.ajax({
-        url: "reservations.php?v=1",
+        url: "/active/join/7",
         type: "POST",
         data: $('[name=reg]').serializeArray(),
-        success: function(r){
-            console.log(r)
+        dataType: 'json', 
+        success: function(msg){
+            if (msg.recode === 200) {
+              return alert('预约成功');
+            } else {
+              return alert(msg.reason);
+            }
         }
     });
-    alert('注册信息提交成功');
+    
 };

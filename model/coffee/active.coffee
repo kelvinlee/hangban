@@ -76,6 +76,14 @@ exports.checkac = (aid,uid,callback)->
 		where: "`aid`='#{aid}' and `uid`='#{uid}'"
 		limit: 1
 	,callback
+exports.checkmobile = (aid,mobile,callback)->
+	getactive aid,(err,results)->
+		mysql.row_select
+			tbname:"regdemo_"+results[0].ename
+			where: "`mobile`='#{mobile}'"
+			limit: 1
+		,callback
+
 
 exports.joinactive = (aid,uid,data,callback)->
 	getactive aid,(err,results)->

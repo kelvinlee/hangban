@@ -19,9 +19,11 @@ img {
 .content {
 	background: #f5f9fa;
 }
-iframe.content {
+.content iframe {
 	border:none;
-	.wh(100%,100%);
+	.wh(100%);
+	-webkit-overflow-scrolling: touch;
+	-webkit-overflow:auto;
 }
 .bar {
 	background: #e8edf1;
@@ -589,7 +591,11 @@ iframe.content {
 		background-image: url("../img/icon-u-4.png");
 	}
 }
-
+.none {
+	.wh(170/640*100%);
+	.mp();
+	margin-top: 10%;
+}
 
 // more than 960
 @media screen and (max-width:321px) {

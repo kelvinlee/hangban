@@ -1,3 +1,4 @@
 extends layout
 block content_here
-	iframe.content(src="#{active.href}")
+	div.content
+		iframe#main-iframe(src="#{active.href}")

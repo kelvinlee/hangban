@@ -1,6 +1,6 @@
 var up = [$('.body .i2')[0], $('.body .i1')[0], $('.result')[0], $('.resultnext')[0], $('.game-end')[0], $('.game-end')[0], $('.game2next .next2')[0], $('.game2next .next1')[0]];
 var down = $('.down');
-window.onload = function () {
+$(document).ready(function () {
     // Game2Start();
     for (var i = 0, len = up.length; i < len; i++) {
         up[i].addEventListener('touchstart', globalTouchHandler, false);
@@ -22,6 +22,7 @@ window.onload = function () {
     //     $('.finger .line').removeClass('none');
     // }, 1000);
     fullSel(_p, $('.sel-prov'), '省份');
+
     $('.sel-prov').on('change', fullCity);
     $('.sel-city').on('change', fullCompany);
     $('.label').on('click', boxTap);
@@ -34,7 +35,7 @@ window.onload = function () {
     // $('.game .car').delegate('div', 'click', tapInGoods);
 
     // $('.pageup').delegate('.i', 'click', tapDown);
-}
+});
 var windowReload = function () {
     window.location.reload();
 };
@@ -218,17 +219,22 @@ var submitForm = function (e) {
     //     alert('“经销商*”不能为空！');
     //     return;
     // }
-    var str = "name="+$('.name').val()+"&mobile="+$('.mobile').val()+"&sex="+$('input[name="sex"]').val()+"&province="+$('.sel-prov').val()+"&city="+$('.sel-city').val()+"&dealer="+$('.sel-dealer').val()+"&ystl="+($('.checkbox')[0].checked?'是':'否')
+    var str = "username="+$('.name').val()+"&mobile="+$('.mobile').val()+"&sex="+$('input[name="sex"]').val()+"&province="+$('.sel-prov').val()+"&city="+$('.sel-city').val()+"&dealer="+$('.sel-dealer').val()+"&ystl="+($('.checkbox')[0].checked?'是':'否')
     $.ajax({
-        url: "reservations.php?v=1",
+        url: "/active/join/5",
         type: "POST",
-        data: str,
-        success: function(r){
-            console.log(r)
+        data: $('[name=reg]').serializeArray(),
+        dataType: 'json', 
+        success: function(msg){
+            if (msg.recode === 200) {
+              return alert('预约成功');
+            } else {
+              return alert(msg.reason);
+            }
         }
     });
-    go();
-    alert('信息已提交！');
+    // go();
+    
 };
 var selsex = function () {
     var arr = $('.box .sex'),

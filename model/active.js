@@ -103,6 +103,16 @@ exports.checkac = function(aid, uid, callback) {
   }, callback);
 };
 
+exports.checkmobile = function(aid, mobile, callback) {
+  return getactive(aid, function(err, results) {
+    return mysql.row_select({
+      tbname: "regdemo_" + results[0].ename,
+      where: "`mobile`='" + mobile + "'",
+      limit: 1
+    }, callback);
+  });
+};
+
 exports.joinactive = function(aid, uid, data, callback) {
   return getactive(aid, function(err, results) {
     regsed(aid);

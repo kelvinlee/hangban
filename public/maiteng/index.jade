@@ -21,15 +21,15 @@ html(lang="en").no-js
 					div.input-group
 						input(type="text",name="mobile",placeholder="手机号")
 					div.select-group.clearfix
-						select()
+						select#province(name="province")
 							option(value="省份") 省份
-						select()
+						select#city(name="city")
 							option(value="城市") 城市
 					div.input-group
 						select()
 							option(value="预计购车时间") 预计购车时间
 					div.input-group
-						select()
+						select#dealer(name="dealer")
 							option(value="经销商") 经销商
 					div.btns
 						a.btn(name="submit")
@@ -38,5 +38,6 @@ html(lang="en").no-js
 
 
 			
+			script(src="js/adress.js")
 			script(src="/js/getuser.js")
 			script(src="js/main.js")

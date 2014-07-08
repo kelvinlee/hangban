@@ -414,14 +414,14 @@ function subimtRegest() {
         alert("请同意一汽-大众奥迪收集您的数据");
         return false;
     }
-    if( !$.strcheck(vals.name, 'name') ) {
-        alert("请输入姓名");
-        return false;
-    }
-    if (!$$.strcheck(vals.mobile, 'phone')) {
-        alert("请正确输入手机号码");
-        return false;
-    }
+    // if( !$.strcheck(vals.name, 'name') ) {
+    //     alert("请输入姓名");
+    //     return false;
+    // }
+    // if (!$$.strcheck(vals.mobile, 'phone')) {
+    //     alert("请正确输入手机号码");
+    //     return false;
+    // }
     if ( !vals.province) {
         alert("请正确选择省份");
         return false;
@@ -430,20 +430,41 @@ function subimtRegest() {
         alert("请正确选择城市");
         return false;
     }
+    if ( !vals.dealer) {
+        alert("请正确选择经销商");
+        return false;
+    }
     subimtRegestblock = true;
     showLoadingScene();
     vals.type = 'ade';
-    $.subimt('regist.php', vals, function(r){
-        subimtRegestblock = false;
-        hideLoadingScene();
-        if(r.state == 'ok' ){
-            $.cookie('reg-code',r.code,100);
-            showAdeInsetScene('img/44.jpg','<div class="code P" style="top:9em;right:1em;height:5em;">'+r.code+'</div>');
-            closeScene($('#reg-scene'));
-        }else{
-            alert(r.msg);
+    vals.username = vals.name;
+    console.log(vals);
+    $.ajax({
+      url: "/active/join/6",
+      type: 'POST',
+      data: vals,
+      dataType: 'json',
+      success: function(msg) {
+        console.log(msg);
+        if (msg.recode === 200) {
+          return alert('预约成功');
+        } else {
+          return alert(msg.reason);
         }
-    }, this)
+      }
+    });
+    // $.subimt('/active/join/6', vals, function(r){
+    //     subimtRegestblock = false;
+    //     hideLoadingScene();
+    //     if(r.recode == 200 ){
+    //         // $.cookie('reg-code',r.code,100);
+    //         // showAdeInsetScene('img/44.jpg','<div class="code P" style="top:9em;right:1em;height:5em;">'+r.code+'</div>');
+    //         // closeScene($('#reg-scene'));
+    //         alert("注册成功");
+    //     }else{
+    //         alert(r.msg);
+    //     }
+    // }, this)
 }
 var subimtRS7Regestblock = false;
 function subimtRS7Regest() {

@@ -153,10 +153,12 @@ img {
 .content {
   background: #f5f9fa;
 }
-iframe.content {
+.content iframe {
   border: none;
   width: 100%;
-  height: 100%;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-overflow: auto;
 }
 .bar {
   background: #e8edf1;
@@ -730,6 +732,13 @@ iframe.content {
 }
 .active .iconx-2 {
   background-image: url("../img/icon-u-4.png");
+}
+.none {
+  width: 26.5625%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0px;
+  margin-top: 10%;
 }
 @media screen and (max-width: 321px) {
   p {

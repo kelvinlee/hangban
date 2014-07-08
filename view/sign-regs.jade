@@ -4,7 +4,7 @@ block content_here
 		ul.table-view
 			li.table-view-cell.user
 				-var url = "/user/center"
-				-if (user.truename != "" && user.truename != null && user.truename.length > 0) {}else{url = "/sign/info"}
+				-if (user.truename != "" && user.truename != null && user.truename.length > 0) {}else{url = "/user/info"}
 
 				a.navigate-right(href="#{url}")
 					span.media-object.pull-left
@@ -26,27 +26,32 @@ block content_here
 					span 中奖信息
 			.card
 				div#item1mobile.control-content.active.activelist
-					-for(var i=0;i<active.length;i++)
-						-var neworhot = ""
-						-if (active[i].neworhot == 1){ neworhot = "new" }
-						-if (active[i].neworhot == 2){ neworhot = "hot" }
-						div(class="item #{neworhot}")
-							a(href="/active/#{active[i].id}")
-								img(src="#{active[i].url}")
-							.description.clearfix
-								-if (active[i].logo == null)
-									//- div #{active[i].logo}
-								-else
-									div.logo-icon.pull-left
-										img(src="#{active[i].logo}")
-								div.des.pull-left
-									p 预约人数: 
-										span #{active[i].regs}
-										| /人
-									p 活动奖品:
-										span.lot #{active[i].lotext}
+					-if (active.length>0)
+						-for(var i=0;i<active.length;i++)
+							-var neworhot = ""
+							-if (active[i].neworhot == 1){ neworhot = "new" }
+							-if (active[i].neworhot == 2){ neworhot = "hot" }
+							div(class="item #{neworhot}")
+								a(href="/active/#{active[i].id}")
+									img(src="#{active[i].url}")
+								.description.clearfix
+									-if (active[i].logo == null)
+										//- div #{active[i].logo}
+									-else
+										div.logo-icon.pull-left
+											img(src="#{active[i].logo}")
+									div.des.pull-left
+										p 预约人数: 
+											span #{active[i].regs}
+											| /人
+										p 活动奖品:
+											span.lot #{active[i].lotext}
+					-else
+						div.none
+							img(src="/img/none.png")
 				//- 中奖信息
 				div#item2mobile.control-content
-
+					div.none
+						img(src="/img/none.png")
 
 

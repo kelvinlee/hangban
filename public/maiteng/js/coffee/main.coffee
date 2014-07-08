@@ -3,8 +3,25 @@
 
 
 $(document).ready ->
+	myK("province").innerHTML = fGetHTMLP()
+	myK("city").innerHTML = fGetHTMLC myK("province").value
+	myK("dealer").innerHTML = fGetHTMLS myK("province").value,myK("city").value
+	myK("province").onchange = ->
+		setTimeout ->
+			myK("city").innerHTML = fGetHTMLC myK("province").value
+			myK("dealer").innerHTML = fGetHTMLS myK("province").value,myK("city").value
+			$('#city').change()
+			$('#dealer').change() 
+		,20
+	myK("city").onchange = ->
+		setTimeout -> 
+			myK("dealer").innerHTML = fGetHTMLS myK("province").value,myK("city").value
+			$('#dealer').change()
+		,20
 	gico.fBindSelect $ 'select'
 	submit()
+myK = (id)->
+	document.getElementById(id)
 userback = ->
 	console.log _user
 	$("[name=username]").val _user.truename
