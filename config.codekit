@@ -148,17 +148,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/controllers\/user.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/controllers\/user.js",
-		"outputAbbreviatedPath": "\/controllers\/min\/user-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/lib\/coffee\/helper.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
@@ -1006,6 +995,50 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/public\/img\/art-6.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 149992,
+		"inputAbbreviatedPath": "\/public\/img\/art-6.png",
+		"outputAbbreviatedPath": "\/public\/img\/art-6.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/art-61.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 41894,
+		"inputAbbreviatedPath": "\/public\/img\/art-61.jpg",
+		"outputAbbreviatedPath": "\/public\/img\/art-61.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/art-62.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 46625,
+		"inputAbbreviatedPath": "\/public\/img\/art-62.jpg",
+		"outputAbbreviatedPath": "\/public\/img\/art-62.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/art-63.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 36624,
+		"inputAbbreviatedPath": "\/public\/img\/art-63.jpg",
+		"outputAbbreviatedPath": "\/public\/img\/art-63.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/img\/art.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1028,6 +1061,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/public\/img\/banner-X1.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 411717,
+		"inputAbbreviatedPath": "\/public\/img\/banner-X1.png",
+		"outputAbbreviatedPath": "\/public\/img\/banner-X1.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/img\/banner1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1046,6 +1090,17 @@
 		"initialSize": 42722,
 		"inputAbbreviatedPath": "\/public\/img\/banner2.jpg",
 		"outputAbbreviatedPath": "\/public\/img\/banner2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/banner3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 59187,
+		"inputAbbreviatedPath": "\/public\/img\/banner3.jpg",
+		"outputAbbreviatedPath": "\/public\/img\/banner3.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1280,6 +1335,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
+		},
+	"\/public\/js\/city.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/js\/city.js",
+		"outputAbbreviatedPath": "\/public\/js\/min\/city-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/public\/js\/coffee\/getuser.coffee": {
 		"createSourceMap": 0,

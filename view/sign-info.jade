@@ -21,13 +21,15 @@ block content_here
 			.form-up
 				-var username = user.truename?user.truename:"";
 				-var adr = user.adr?user.adr:"";
+				-var email = user.email?user.email:"";
 				form(action="/user/info",method="post")
 					input(type="text",id="truename",name="truename",value="#{username}",placeholder="真实姓名")
 					input(type="text",id="mobile",name="mobile",value="#{user.mobile}",readonly)
+					input(type="text",id="email",name="email",value="#{email}",placeholder="电子邮箱")
 					-var nan = false
 					-var nv = false
 					-if (user.sex == null || user.sex == "男") {nan = true}else{nv = true}
-					div.radio-group
+					div.radio-group.clearfix
 						label
 							-if (nan)
 								input(type="radio",name="sex",value="1",checked)
@@ -40,5 +42,50 @@ block content_here
 							-else
 								input(type="radio",name="sex",value="0")
 							|  女士
+					-var province = user.province?user.province:"";
+					-var city = user.city?user.city:"";
+					div.province
+						select(name="province",sel="#{province}")
+							option(value="请选择省份") 请选择省份
+					div.city
+						select(name="city",sel="#{city}")
+							option(value="请选择城市") 请选择城市
 					input(type="text",id="adr",name="adr",value="#{adr}",placeholder="常用地址")
+
 					button.btn.btn-block(type="submit") 提交
+
+block js_here
+	script(src="/js/city.js")
+	script.
+		function bindSelect() {
+			var psel = $("[name=province]").attr("sel");
+			console.log(psel);
+			for (var i=0;i<cityData.length;i++) {
+				if(psel == cityData[i].name) {
+					$("[name=province]").append('<option value="'+cityData[i].name+'" num="'+i+'" selected="selected">'+cityData[i].name+'</option>');
+				}else{
+					$("[name=province]").append('<option value="'+cityData[i].name+'" num="'+i+'">'+cityData[i].name+'</option>');
+				}
+			}
+			$("[name=province]").change(function(){
+				var num = $("option[value="+$(this).val()+"]",this).attr('num');
+				var html = "<option value='请选择城市'>请选择城市</option>";
+				if (num != null) {
+					var csel = $("[name=city]").attr("sel");
+					num = parseInt(num);
+					for (var i=0;i<cityData[num].sub.length;i++) {
+						if(csel == cityData[num].sub[i].name) {
+							html += '<option value="'+cityData[num].sub[i].name+'" selected="selected">'+cityData[num].sub[i].name+'</option>';	
+						}else{
+							html += '<option value="'+cityData[num].sub[i].name+'">'+cityData[num].sub[i].name+'</option>';	
+						}
+					}
+				}
+				$("[name=city]").html(html);
+				$("[name=city]").change();
+			});
+			$("[name=province]").change();
+		}
+		$(document).ready(function(){
+			bindSelect();
+		});

@@ -360,7 +360,6 @@ readygo = function(evt) {
 };
 
 $(document).ready(function() {
-	fiexIframe();
   return readygo();
 });
 
@@ -575,13 +574,3 @@ showactivetable = function() {
     }
   });
 };
-
-function resetFrame(height) {
-	$("#main-iframe").height(height);
-}
-var fiexIframe = function() {
-	//子页面加载完成设置使用div包裹其内容
-	$("#main-iframe").on("load", function(){
-		// alert($(this).height()); 
-	});
-}

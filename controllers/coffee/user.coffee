@@ -69,13 +69,17 @@ exports.carspost = (req,res,next)->
 
 
 exports.infopost = (req,res,next)->
+	re = new helper.recode()
 	data = {}
 	data.truename = req.body.truename
 	data.sex = if req.body.sex is "1" then "男" else "女"
 	data.adr = req.body.adr
+	data.province = req.body.province
+	data.city = req.body.city
 	console.log req.body,data
 	user.updateUserInfo res.locals.userid,data,(err,results)->
 		console.log err,results
+		res.redirect "/user/info"
 
 exports.center = (req,res,next)->
 	console.log "用户中心id:",res.locals.userid

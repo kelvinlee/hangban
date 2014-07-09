@@ -98,14 +98,18 @@ exports.carspost = function(req, res, next) {
 };
 
 exports.infopost = function(req, res, next) {
-  var data;
+  var data, re;
+  re = new helper.recode();
   data = {};
   data.truename = req.body.truename;
   data.sex = req.body.sex === "1" ? "男" : "女";
   data.adr = req.body.adr;
+  data.province = req.body.province;
+  data.city = req.body.city;
   console.log(req.body, data);
   return user.updateUserInfo(res.locals.userid, data, function(err, results) {
-    return console.log(err, results);
+    console.log(err, results);
+    return res.redirect("/user/info");
   });
 };
 

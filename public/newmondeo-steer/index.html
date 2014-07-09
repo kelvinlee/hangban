@@ -51,7 +51,7 @@
             <img src="./files/wx.png" width="100%">
         </div>
         <div class="form">
-            <img src="./files/form.jpg" width="100%;">
+            <img src="./files/form.jpg" onload="reset(this)" width="100%;">
             <form name="reg">
                 <span class="title">
                     提交资料
@@ -185,5 +185,6 @@
             $("[name=mobile]").val(_user.mobile);
             $("[name=uid]").val(_user.id);
         }
+
         </script>
 </body></html>

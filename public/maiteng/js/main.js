@@ -366,6 +366,8 @@ $(document).ready(function() {
     }, 20);
   };
   gico.fBindSelect($('select'));
+  // alert($(".main").height());
+  reset($(".main"));
   return submit();
 });
 

@@ -244,7 +244,7 @@
             <div class="info">
                 <a href="#"></a>
             </div>
-            <img src="img/form.jpg" width="100%">
+            <img src="img/form.jpg" onload="reset(this)" width="100%">
             <div class="form">
                 <form name="reg">
                     <label class="text">
@@ -322,7 +322,12 @@
                 $('.box .sex').on('click', selsex);
                 $('.label').on('click', boxTap);
             });
-
+            function reset (o) {
+               console.log(parent.window);
+               if (parent.window.resetFrame != null) {
+                parent.window.resetFrame($(o).height());
+               }
+            }
             var selsex = function () {
                 var arr = $('.box .sex'),
                     dom = $(this);

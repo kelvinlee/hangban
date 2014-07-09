@@ -20,3 +20,9 @@ window.onload = function() {
     }
   });
 };
+function reset (o) {
+   console.log(parent.window);
+   if (parent.window.resetFrame != null) {
+    parent.window.resetFrame($(o).height()-20);
+   }
+}

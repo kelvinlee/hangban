@@ -459,8 +459,8 @@ img {
   border: none;
   background: transparent;
   border-bottom: solid 1px #567fbc;
-  height: 55px;
-  line-height: 55px;
+  padding-top: 27px;
+  padding-bottom: 27px;
   border-radius: 0px;
   color: #567fbc;
   font-size: 14px;
@@ -472,6 +472,28 @@ img {
 .form-up input[type=text]::-webkit-input-placeholder,
 .form-up input[type=password]::-webkit-input-placeholder {
   color: #567fbc;
+}
+.form-up .select-parent {
+  margin-bottom: 0px;
+  border: none;
+  background: transparent;
+  border-bottom: solid 1px #567fbc;
+  height: 55px;
+  line-height: 55px;
+  border-radius: 0px;
+  color: #567fbc;
+  font-size: 14px;
+  position: relative;
+}
+.form-up .select-parent span {
+  padding-left: 15px;
+}
+.form-up .select-parent select {
+  position: absolute;
+  margin: 0 auto;
+  padding: 0px;
+  padding: 20px;
+  opacity: 0;
 }
 .form-up .last {
   border-bottom: 0px;

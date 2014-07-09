@@ -14,6 +14,8 @@ readygo = (evt)->
 	checkForm()
 	createForm()
 	checkTimes()
+	# gico.fBindSelect $ 'select'
+
 
 $(document).ready ->
 	readygo()
