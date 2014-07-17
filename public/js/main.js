@@ -170,6 +170,7 @@ Giccoo = (function() {
       var $div, $i;
       $div = $('<div>').addClass('radio-parent ' + $(this).attr('class'));
       $i = $('<i>');
+      $i.text($(this).attr("value"));
       $(this).before($div);
       $div.addClass($(this).attr('class')).append($(this));
       $div.append($i);

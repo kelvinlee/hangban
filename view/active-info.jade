@@ -1,4 +1,6 @@
 extends layout
+block title
+	| #{active.name}
 block content_here
 	div.content
 		iframe#main-iframe(src="#{active.href}")

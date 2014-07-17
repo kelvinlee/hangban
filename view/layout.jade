@@ -23,4 +23,8 @@ html(lang="en").no-js
 			
 			script(src="/js/ratchet.js")
 			script(src="/js/main.js")
+			script.
+				if (window.JSBridge ! = null) {
+					window.JSBridge.controlToolbar(false);
+				}
 			block js_here
