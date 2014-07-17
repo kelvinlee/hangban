@@ -16,12 +16,15 @@ user = require('../model/user');
 active = require('../model/active');
 
 exports.before = function(req, res, next) {
+  var _s;
+  _s = new Date().getTime();
   if ((req.cookies.user != null) && (res.locals.userid != null) && req.cookies.user !== "") {
     res.locals.men_user = "active";
-    return next();
+    next();
   } else {
-    return res.redirect('/sign/in');
+    res.redirect('/sign/in');
   }
+  return console.log("跳转使用:" + (new Date().getTime() - _s) / 1000 + "s");
 };
 
 exports.api = function(req, res, next) {

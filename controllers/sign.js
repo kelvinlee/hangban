@@ -38,23 +38,24 @@ exports.userinfo = function(req, res, next) {
 };
 
 exports["in"] = function(req, res, next) {
+  var _s;
   console.log("登录");
-  return res.render('sign-in');
+  _s = new Date().getTime();
+  res.render('sign-in');
+  return console.log("加载使用:" + (new Date().getTime() - _s) / 1000 + "s");
 };
 
 exports.up = function(req, res, next) {
-  var cookie_user;
   console.log("注册");
-  cookie_user = helper.encrypt("1\tuser", config.secret);
   return res.render('sign-up');
 };
 
 exports.out = function(req, res, next) {
   var re;
+  console.log("退出");
   re = new helper.recode();
   res.cookie('user', "");
-  res.redirect('/sign/in');
-  return console.log("退出");
+  return res.redirect('/sign/in');
 };
 
 exports.uppost = function(req, res, next) {

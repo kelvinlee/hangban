@@ -11,11 +11,13 @@ user = require '../model/user'
 active = require '../model/active'
 
 exports.before = (req,res,next)->
+	_s = new Date().getTime()
 	if req.cookies.user? and res.locals.userid? and req.cookies.user isnt ""
 		res.locals.men_user = "active"
 		next()
 	else
 		res.redirect '/sign/in'
+	console.log "跳转使用:"+(new Date().getTime()-_s)/1000+"s"
 exports.api = (req,res,next)->
 	re = new helper.recode()
 	if res.locals.userid?

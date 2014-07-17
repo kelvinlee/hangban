@@ -38,43 +38,23 @@ exports.userinfo = (req,res,next)->
 
 exports.in = (req,res,next)->
 	console.log "登录"
-	# user.userinfo 1, (err,results)->
-	# 	console.log "what?",err,results
-	# user.usersnumber (err,rows)->
-	# 	console.log "rows?",err,rows
-
+	_s = new Date().getTime()
 	res.render 'sign-in'
-	# res.send "登录"
+	console.log "加载使用:"+(new Date().getTime()-_s)/1000+"s"
 
 exports.up = (req,res,next)->
 	console.log "注册"
-	cookie_user = helper.encrypt "1\tuser",config.secret
-	# console.log user
-	# console.log helper.decrypt cookie_user,config.secret
-	# reg = {}
-	# reg.username = "a1270989"
-	# reg.password = "9872234"
-	# reg.truename = "哈哈" 
-	# reg.mobile = "18610508726"
-	# reg.regdate = new Date()
-	# reg.logindate = new Date()
-	# user.reg reg, (err,results)->
-	# 	# results.insertId
-	# 	console.log "注册:",err,results
-
-	# re = new helper.recode()
-	# res.send re
 	res.render 'sign-up'
-	# res.send "注册"
 
 
 
 exports.out = (req,res,next)->
+	console.log "退出"
 	re = new helper.recode()
 	res.cookie 'user',""
 	# res.send re
 	res.redirect '/sign/in'
-	console.log "退出"
+	
 
 exports.uppost = (req,res,next)->
 	console.log "注册提交"
