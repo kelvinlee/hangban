@@ -20,11 +20,9 @@ html(lang="en").no-js
 			include nav
 			
 			block content_here
-			
+			script.
+				window.JSBridge.controlToolbar(false);
 			script(src="/js/ratchet.js")
 			script(src="/js/main.js")
-			script.
-				if (window.JSBridge ! = null) {
-					window.JSBridge.controlToolbar(false);
-				}
+			
 			block js_here
