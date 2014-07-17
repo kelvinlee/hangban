@@ -322,12 +322,6 @@
                 $('.box .sex').on('click', selsex);
                 $('.label').on('click', boxTap);
             });
-            function reset (o) {
-               console.log(parent.window);
-               if (parent.window.resetFrame != null) {
-                parent.window.resetFrame($(o).height());
-               }
-            }
             var selsex = function () {
                 var arr = $('.box .sex'),
                     dom = $(this);

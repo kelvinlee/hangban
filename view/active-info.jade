@@ -3,4 +3,16 @@ block title
 	| #{active.name}
 block content_here
 	div.content
-		iframe#main-iframe(src="#{active.href}")
+		iframe#main-iframe(src="#{active.href}",style="width:100%;min-height:100%;border:none;")
+
+	div(style="display:none;")
+		div#fenxiang_title 分享主标题
+		div#fenxiang_img http://kelvin.local:5757/img/banner-X1.png
+		div#fenxiang_desc 分享内容
+		div#fenxiang_link http://hangban.mconnect.cn
+		div#weibo_fenxiang_img http://kelvin.local:5757/img/banner-X1.png
+block js_here
+	script.
+		function resetFrame(h) {
+			$("#main-iframe").height(h-20);
+		}

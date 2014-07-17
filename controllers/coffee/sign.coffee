@@ -23,7 +23,8 @@ exports.before = (req,res,next)->
 exports.userinfo = (req,res,next)->
 	# req.cookies.user = "im kelvin."
 	# console.log req.cookies.user
-
+	# res.cookie "user",""
+	# console.log req.cookies.user
 	if req.cookies.user? and req.cookies.user isnt ""
 		# console.log req.cookies.user
 		cookie_user = helper.decrypt req.cookies.user,config.secret
