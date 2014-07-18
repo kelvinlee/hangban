@@ -49,12 +49,14 @@ exports.joina = function(req, res, next) {
     re.reason = "请验证手机号码格式";
   }
   aid = req.params.active_id;
-  console.log(data);
+  console.log(data, re);
   if (re.recode !== 200) {
     return res.send(re);
   }
   uid = req.body.uid;
-  if (uid != null) {
+  console.log(uid);
+  if ((uid != null) && uid !== "") {
+    console.log("uid:", uid);
     active.checkac(aid, uid, function(err, resu) {
       if (resu.length > 0) {
         re.recode = 301;
@@ -70,6 +72,7 @@ exports.joina = function(req, res, next) {
     return '';
   } else {
     return active.checkmobile(aid, data.mobile, function(err, u) {
+      console.log(err, u);
       if (u.length > 0) {
         re.recode = 301;
         re.reason = "您已经参与过此活动了";

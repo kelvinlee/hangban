@@ -97,16 +97,13 @@ exports.homepage = (req,res,next)->
 
 	active.getActives (err,results)->
 		ep.emit "active",results
-		if results[0]?
-			active.getUsers 'regdemo_'+results[0].ename,(err,users)->
-				if users?
-					for a in users
-						a.newtime = helper.format_date(new Date(a.create_at),true)
-						reg = /(\d{3})\d{4}(\d{4})/
-						a.mobile = a.mobile.replace reg,"$1****$2"
-					ep.emit "users",users
-				else
-					ep.emit "users",[]
+	active.getUsers 'note',(err,users)->
+		if users?
+			for a in users
+				a.newtime = helper.format_date(new Date(a.create_at),true)
+				reg = /(\d{3})\d{4}(\d{4})/
+				a.mobile = a.mobile.replace reg,"$1****$2"
+			ep.emit "users",users
 		else
 			ep.emit "users",[]
 	active.getBanner (err,results)->

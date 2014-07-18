@@ -121,15 +121,27 @@ exports.joinactive = function(aid, uid, data, callback) {
       uid: uid,
       create_at: new Date()
     }, function(err, resu) {
-      return mysql.row_insert("regdemo_" + results[0].ename, data, callback);
+      var note;
+      mysql.row_insert("regdemo_" + results[0].ename, data, callback);
+      note = {};
+      note.username = data.username;
+      note.mobile = data.mobile;
+      note.create_at = data.create_at;
+      return mysql.row_insert("note", note);
     });
   });
 };
 
 exports.joinactivenou = function(aid, data, callback) {
   return getactive(aid, function(err, results) {
+    var note;
     regsed(aid);
-    return mysql.row_insert("regdemo_" + results[0].ename, data, callback);
+    mysql.row_insert("regdemo_" + results[0].ename, data, callback);
+    note = {};
+    note.username = data.username;
+    note.mobile = data.mobile;
+    note.create_at = data.create_at;
+    return mysql.row_insert("note", note);
   });
 };
 

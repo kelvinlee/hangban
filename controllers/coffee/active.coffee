@@ -54,7 +54,7 @@ exports.joina = (req,res,next)->
 
 	aid = req.params.active_id
 	
-	console.log data
+	console.log data,re
 
 
 	if re.recode isnt 200
@@ -63,7 +63,9 @@ exports.joina = (req,res,next)->
 	# 	res.send re
 	# return ''
 	uid = req.body.uid
-	if uid?
+	console.log uid
+	if uid? and uid isnt ""
+		console.log "uid:",uid
 		active.checkac aid,uid,(err,resu)->
 			if resu.length > 0
 				re.recode = 301
@@ -76,6 +78,7 @@ exports.joina = (req,res,next)->
 		return ''
 	else
 		active.checkmobile aid,data.mobile,(err,u) ->
+			console.log err,u
 			if u.length > 0
 				re.recode = 301
 				re.reason = "您已经参与过此活动了"

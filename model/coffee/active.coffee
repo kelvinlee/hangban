@@ -90,11 +90,21 @@ exports.joinactive = (aid,uid,data,callback)->
 		regsed aid
 		mysql.row_insert "useractive",{aid:aid,uid:uid,create_at:new Date()},(err,resu)->
 			mysql.row_insert "regdemo_"+results[0].ename,data,callback
+			note = {}
+			note.username = data.username
+			note.mobile = data.mobile
+			note.create_at = data.create_at
+			mysql.row_insert "note",note
 exports.joinactivenou = (aid,data,callback)->
 	getactive aid,(err,results)->
 		regsed aid
 	# mysql.row_insert "useractive",{aid:aid,uid:uid,create_at:new Date()},(err,results)->
 		mysql.row_insert "regdemo_"+results[0].ename,data,callback
+		note = {}
+		note.username = data.username
+		note.mobile = data.mobile
+		note.create_at = data.create_at
+		mysql.row_insert "note",note
 
 
 # for art

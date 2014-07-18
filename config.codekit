@@ -63,17 +63,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/controllers\/active.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/controllers\/active.js",
-		"outputAbbreviatedPath": "\/controllers\/min\/active-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/controllers\/coffee\/active.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
@@ -126,17 +115,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
-	"\/controllers\/home.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/controllers\/home.js",
-		"outputAbbreviatedPath": "\/controllers\/min\/home-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/lib\/coffee\/helper.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
@@ -156,17 +134,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/lib\/helper.js",
 		"outputAbbreviatedPath": "\/lib\/min\/helper-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/model\/active.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/model\/active.js",
-		"outputAbbreviatedPath": "\/model\/min\/active-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
