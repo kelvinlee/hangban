@@ -71,13 +71,18 @@ exports.uppost = (req,res,next)->
 	data = {}
 	data.mobile = req.body.mobile
 	data.password = req.body.password
-
-	user.reg data,(err,results)->
-		# console.log err,results
-		cookie_user = helper.encrypt "#{results.insertId}\t\t#{data.mobile}",config.secret
-		res.cookie 'user',cookie_user
-		res.cookie 'id',results.insertId
-		res.send re
+	user.getmobile data.mobile,(err,m)->
+		if m.length>0
+			re.recode = 201
+			re.reason = "此手机号已经注册过了"
+			res.send re
+		else
+			user.reg data,(err,results)->
+				# console.log err,results
+				cookie_user = helper.encrypt "#{results.insertId}\t\t#{data.mobile}",config.secret
+				res.cookie 'user',cookie_user
+				res.cookie 'id',results.insertId
+				res.send re
 
 exports.post = (req,res,next)->
 	console.log "登录提交",req.body,req.params,res.body

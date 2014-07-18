@@ -2,6 +2,11 @@ mysql = require './mysql-class'
 helper = require '../lib/helper'
 
 
+exports.getmobile = (mobile,callback)->
+	mysql.row_select
+		tbname:"user"
+		where: "`mobile` = '#{mobile}'"
+	, callback
 
 exports.usersnumber = (callback)->
 	mysql.row_count 'user',null,callback

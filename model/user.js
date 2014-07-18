@@ -5,6 +5,13 @@ mysql = require('./mysql-class');
 
 helper = require('../lib/helper');
 
+exports.getmobile = function(mobile, callback) {
+  return mysql.row_select({
+    tbname: "user",
+    where: "`mobile` = '" + mobile + "'"
+  }, callback);
+};
+
 exports.usersnumber = function(callback) {
   return mysql.row_count('user', null, callback);
 };

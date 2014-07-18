@@ -10,8 +10,26 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <title>迈腾</title>
+    <style> 
+        body {
+            position: relative;
+        }
+        .mark {
+            position: absolute;
+            top:0px;
+            bottom: 0px;
+            width: 100%;
+            min-height: 100%;
+            background: #000;
+            z-index: 9999;
+        }
+        .mark img{
+            width: 100%;
+        }
+    </style>
     <body>
       <div class="main">
+        <a href="#" onclick="showpop()" style="position:absolute;width:100%;display:block;padding-top:23%;height:10px;top:23%;z-index:999;"></a>
         <form action="/active/join/3" name="register" class="form">
           <div class="input-group">
             <input type="text" name="username" placeholder="用户名">
@@ -44,6 +62,16 @@
       <script src="js/adress.js"></script>
       <script src="/js/getuser.js"></script>
       <script src="js/main.js"></script>
+      <script>
+      function showpop() {
+            var pop = $("<div class='mark'>")
+            pop.append('<img src="info.jpg" />');
+            $("body").append(pop);
+            pop.click(function(){
+                $(this).remove();
+            });
+        }
+      </script>
     </body>
   </head>
 </html>

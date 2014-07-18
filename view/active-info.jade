@@ -2,7 +2,7 @@ extends layout
 block title
 	| #{active.name}
 block content_here
-	div.content
+	div.content(style="padding-bottom:40px;")
 		iframe#main-iframe(src="#{active.href}",style="width:100%;min-height:100%;border:none;")
 
 	div(style="display:none;")

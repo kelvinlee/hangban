@@ -233,6 +233,22 @@
             }
 
         </style>
+        <style>
+            body {
+                position: relative;
+            }
+            .mark {
+                position: absolute;
+                top:0px;
+                bottom: 0px;
+                width: 100%;
+                min-height: 100%;
+                background: #000;
+            }
+            .mark img{
+                width: 100%;
+            }
+        </style>
         <script src="jquery.js"></script>
         <script src="address.js"></script>
         <script>
@@ -242,7 +258,7 @@
     <body>
         <div class="body">
             <div class="info">
-                <a href="#"></a>
+                <a href="#" onclick="showpop()"></a>
             </div>
             <img src="img/form.jpg" onload="reset(this)" width="100%">
             <div class="form">
@@ -321,6 +337,8 @@
                 // $('.succ, .fail').on('tap', closeAlt);
                 $('.box .sex').on('click', selsex);
                 $('.label').on('click', boxTap);
+
+
             });
             var selsex = function () {
                 var arr = $('.box .sex'),
@@ -458,7 +476,14 @@
                 arr = _pc[currProvince][city];
                 fullSel(arr, $('.sel-dealer'), '经销商');
             };
-            
+            function showpop() {
+                var pop = $("<div class='mark'>")
+                pop.append('<img src="info.jpg" />');
+                $("body").append(pop);
+                pop.click(function(){
+                    $(this).remove();
+                });
+            }
         </script>
     </body>
 </html>

@@ -77,12 +77,20 @@ exports.uppost = function(req, res, next) {
   data = {};
   data.mobile = req.body.mobile;
   data.password = req.body.password;
-  return user.reg(data, function(err, results) {
-    var cookie_user;
-    cookie_user = helper.encrypt("" + results.insertId + "\t\t" + data.mobile, config.secret);
-    res.cookie('user', cookie_user);
-    res.cookie('id', results.insertId);
-    return res.send(re);
+  return user.getmobile(data.mobile, function(err, m) {
+    if (m.length > 0) {
+      re.recode = 201;
+      re.reason = "此手机号已经注册过了";
+      return res.send(re);
+    } else {
+      return user.reg(data, function(err, results) {
+        var cookie_user;
+        cookie_user = helper.encrypt("" + results.insertId + "\t\t" + data.mobile, config.secret);
+        res.cookie('user', cookie_user);
+        res.cookie('id', results.insertId);
+        return res.send(re);
+      });
+    }
   });
 };
 

@@ -63,6 +63,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/controllers\/active.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/controllers\/active.js",
+		"outputAbbreviatedPath": "\/controllers\/min\/active-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/controllers\/coffee\/active.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
@@ -115,6 +126,28 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
+	"\/controllers\/home.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/controllers\/home.js",
+		"outputAbbreviatedPath": "\/controllers\/min\/home-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/controllers\/user.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/controllers\/user.js",
+		"outputAbbreviatedPath": "\/controllers\/min\/user-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/lib\/coffee\/helper.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
@@ -134,6 +167,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/lib\/helper.js",
 		"outputAbbreviatedPath": "\/lib\/min\/helper-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/model\/active.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/model\/active.js",
+		"outputAbbreviatedPath": "\/model\/min\/active-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -184,17 +228,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/model\/mysql-class.js",
 		"outputAbbreviatedPath": "\/model\/min\/mysql-class-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/model\/user.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/model\/user.js",
-		"outputAbbreviatedPath": "\/model\/min\/user-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -395,6 +428,28 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/public\/2014ade\/info-btn.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4960,
+		"inputAbbreviatedPath": "\/public\/2014ade\/info-btn.jpg",
+		"outputAbbreviatedPath": "\/public\/2014ade\/info-btn.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/2014ade\/info.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 63852,
+		"inputAbbreviatedPath": "\/public\/2014ade\/info.jpg",
+		"outputAbbreviatedPath": "\/public\/2014ade\/info.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
 		},
 	"\/public\/css\/main.css": {
 		"fileType": 16,
@@ -1340,6 +1395,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/public\/js\/main.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/js\/main.js",
+		"outputAbbreviatedPath": "\/public\/js\/min\/main-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/public\/js\/min\/city-ck.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -1466,6 +1532,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/public\/maiteng\/img\/title.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 11752,
+		"inputAbbreviatedPath": "\/public\/maiteng\/img\/title.png",
+		"outputAbbreviatedPath": "\/public\/maiteng\/img\/title.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/maiteng\/index.html": {
 		"fileType": 8192,
 		"ignore": 1,
@@ -1485,6 +1562,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0
+		},
+	"\/public\/maiteng\/info.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 202304,
+		"inputAbbreviatedPath": "\/public\/maiteng\/info.jpg",
+		"outputAbbreviatedPath": "\/public\/maiteng\/info.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
 		},
 	"\/public\/maiteng\/js\/adress.js": {
 		"fileType": 64,
@@ -1509,6 +1597,17 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
+		},
+	"\/public\/maiteng\/js\/main.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/maiteng\/js\/main.js",
+		"outputAbbreviatedPath": "\/public\/maiteng\/js\/min\/main-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/public\/maiteng\/less\/main.less": {
 		"allowInsecureImports": 0,
@@ -1890,6 +1989,28 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/public\/newmondeo-steer\/info.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 204471,
+		"inputAbbreviatedPath": "\/public\/newmondeo-steer\/info.jpg",
+		"outputAbbreviatedPath": "\/public\/newmondeo-steer\/info.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/newmondeo-steer\/title.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 11753,
+		"inputAbbreviatedPath": "\/public\/newmondeo-steer\/title.png",
+		"outputAbbreviatedPath": "\/public\/newmondeo-steer\/title.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
 		},
 	"\/public\/peugeot3008\/files\/001.jpg": {
 		"fileType": 16384,
@@ -2505,6 +2626,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/public\/peugeot3008\/info.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 207353,
+		"inputAbbreviatedPath": "\/public\/peugeot3008\/info.jpg",
+		"outputAbbreviatedPath": "\/public\/peugeot3008\/info.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/x1\/address.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -2601,6 +2733,17 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/public\/x1\/info.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 87149,
+		"inputAbbreviatedPath": "\/public\/x1\/info.jpg",
+		"outputAbbreviatedPath": "\/public\/x1\/info.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
 		},
 	"\/public\/x1\/jquery.js": {
 		"fileType": 64,

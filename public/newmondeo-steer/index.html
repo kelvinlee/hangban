@@ -17,7 +17,22 @@
             
 
         </style>
-        
+        <style>
+            body {
+                position: relative;
+            }
+            .mark {
+                position: absolute;
+                top:0px;
+                bottom: 0px;
+                width: 100%;
+                min-height: 100%;
+                background: #000;
+            }
+            .mark img{
+                width: 100%;
+            }
+        </style>
         <script src="./files/jquery.js"></script>
         <script src="./files/jquery.mobile.min.js"></script>
         <script src="./files/address.js"></script>
@@ -53,11 +68,11 @@
         <div class="form">
             <img src="./files/form.jpg" onload="reset(this)" width="100%;">
             <form name="reg">
-                <span class="title">
+                <!-- <span class="title">
                     提交资料
-                </span>
-                <div class="info">
-                    ＊为保证奖品的顺利发放，请务必正确填写您的手机号码和所在城市。
+                </span> -->
+                <div class="info" onclick="showpop()">
+                    <img src="title.png" style="width:100%;" />
                 </div>
                 <label class="text">
                     <input type="hidden" name="uid" value="">
@@ -185,6 +200,13 @@
             $("[name=mobile]").val(_user.mobile);
             $("[name=uid]").val(_user.id);
         }
-
+        function showpop() {
+            var pop = $("<div class='mark'>")
+            pop.append('<img src="info.jpg" />');
+            $("body").append(pop);
+            pop.click(function(){
+                $(this).remove();
+            });
+        }
         </script>
 </body></html>

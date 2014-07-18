@@ -16,7 +16,23 @@
 
 
         </style>
-        
+        <style> 
+            body {
+                position: relative;
+            }
+            .mark {
+                position: absolute;
+                top:0px;
+                bottom: 0px;
+                width: 100%;
+                min-height: 100%;
+                background: #000;
+                z-index: 9999;
+            }
+            .mark img{
+                width: 100%;
+            }
+        </style>
         <script src="./files/jquery.js"></script>
 
         <script src="./files/address.js"></script>
@@ -64,9 +80,10 @@
                 </div>
             </div>
         </div>
-        <div class="form">
+        <div class="form" >
+            <a href="#" onclick="showpop()" style="position:absolute;width:100%;display:block;padding-top:20%;height:10px;top:10%;"></a>
             <img src="./files/form.jpg" onload="reset(this)" width="100%">
-            <form name="reg" action="/active/join/5">
+            <form name="reg" action="/active/join/5" style="top:23%;">
                 <label class="text">
                     <input type="hidden" name="uid" value="">
                     <input type="text" name="username" class="inp name" placeholderd="真实姓名">
@@ -357,6 +374,14 @@
             $("[name=username]").val(_user.truename);
             $("[name=mobile]").val(_user.mobile);
             $("[name=uid]").val(_user.id);
+        }
+        function showpop() {
+            var pop = $("<div class='mark'>")
+            pop.append('<img src="info.jpg" />');
+            $("body").append(pop);
+            pop.click(function(){
+                $(this).remove();
+            });
         }
         </script>
     
