@@ -12,7 +12,6 @@ html(lang="en").no-js
 		link(rel="stylesheet",href="/css/ratchet.css")
 		link(rel="stylesheet",href="/css/main.css")
 		script.
-			window.location.href = "HbgjJsBridge://?methods=hideToolbar";
 			if (typeof window.JSBridge != "undefined") {
 				window.JSBridge.controlToolbar(false);
 			}
@@ -29,3 +28,5 @@ html(lang="en").no-js
 			script(src="/js/main.js")
 			
 			block js_here
+			script.
+				window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
