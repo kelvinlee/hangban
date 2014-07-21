@@ -12,8 +12,10 @@ html(lang="en").no-js
 		link(rel="stylesheet",href="/css/ratchet.css")
 		link(rel="stylesheet",href="/css/main.css")
 		script.
-			window.JSBridge.controlToolbar(false);
 			window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
+			if (typeof window.JSBridge != "undefined") {
+				window.JSBridge.controlToolbar(false);
+			}
 		title
 			block title
 
