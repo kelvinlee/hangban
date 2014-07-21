@@ -11,7 +11,9 @@ html(lang="en").no-js
 		//- script(src="js/viewport.js")
 		link(rel="stylesheet",href="/css/ratchet.css")
 		link(rel="stylesheet",href="/css/main.css")
-
+		script.
+			window.JSBridge.controlToolbar(false);
+			window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
 		title
 			block title
 
@@ -20,8 +22,7 @@ html(lang="en").no-js
 			include nav
 			
 			block content_here
-			script.
-				//- window.JSBridge.controlToolbar(false);
+
 			script(src="/js/ratchet.js")
 			script(src="/js/main.js")
 			
