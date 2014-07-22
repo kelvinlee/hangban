@@ -81,7 +81,7 @@ exports.infopost = (req,res,next)->
 	console.log req.body,data
 	user.updateUserInfo res.locals.userid,data,(err,results)->
 		console.log err,results
-		res.redirect "/user/info"
+		res.redirect "/user/regs"
 
 exports.center = (req,res,next)->
 	console.log "用户中心id:",res.locals.userid

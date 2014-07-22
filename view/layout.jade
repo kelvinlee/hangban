@@ -29,4 +29,6 @@ html(lang="en").no-js
 			
 			block js_here
 			script.
-				window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
+				$(document).ready(function(){
+					window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
+				});

@@ -452,6 +452,7 @@ img {
 }
 .form-up {
   padding: 0px 15px;
+  min-height: 454px;
 }
 .form-up input[type=text],
 .form-up input[type=password] {

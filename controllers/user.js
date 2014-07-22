@@ -112,7 +112,7 @@ exports.infopost = function(req, res, next) {
   console.log(req.body, data);
   return user.updateUserInfo(res.locals.userid, data, function(err, results) {
     console.log(err, results);
-    return res.redirect("/user/info");
+    return res.redirect("/user/regs");
   });
 };
 
