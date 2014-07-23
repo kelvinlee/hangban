@@ -63,11 +63,11 @@
         position: relative;
     }
     .mark {
-        position: absolute;
+        position: fixed;
         top:0px;
         bottom: 0px;
         width: 100%;
-        min-height: 100%;
+        /*min-height: 100%;*/
         background: #000;
         z-index: 9999;
     }
@@ -216,6 +216,8 @@
         $("[name=uid]").val(_user.id);
     }
     function showpop() {
+        return window.location.href = "info.html";
+
         var pop = $("<div class='mark'>")
         pop.append('<img src="info.jpg" />');
         $("body").append(pop);

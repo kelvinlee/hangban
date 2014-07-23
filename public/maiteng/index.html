@@ -63,14 +63,16 @@
       <script src="/js/getuser.js"></script>
       <script src="js/main.js"></script>
       <script>
+      reset($(".main"));
       function showpop() {
-            var pop = $("<div class='mark'>")
-            pop.append('<img src="info.jpg" />');
-            $("body").append(pop);
-            pop.click(function(){
-                $(this).remove();
-            });
-        }
+        return window.location.href = "info.html";
+        var pop = $("<div class='mark'>")
+        pop.append('<img src="info.jpg" />');
+        $("body").append(pop);
+        pop.click(function(){
+            $(this).remove();
+        });
+      }
       </script>
     </body>
   </head>

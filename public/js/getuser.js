@@ -26,3 +26,9 @@ function reset(o) {
     parent.window.resetFrame($(o).height());
    }
 }
+function resets(o) {
+   console.log(parent.window);
+   if (parent.window.resetFrame != null) {
+    parent.window.resetFrame($(o).height()+20);
+   }
+}
