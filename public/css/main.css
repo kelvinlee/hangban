@@ -442,13 +442,20 @@ img {
   color: #567fbc;
 }
 .title-logo {
-  padding: 30px 0px;
+  padding: 30px 15px;
   width: 100%;
   height: auto;
-  text-align: center;
+  text-align: justify;
+}
+.title-logo p {
+  color: #567fbc;
+  margin: 0 auto;
+  padding: 0px;
 }
 .title-logo img {
-  width: 13.125%;
+  width: 20.3125%;
+  float: left;
+  margin-right: 15px;
 }
 .form-up {
   padding: 0px 15px;
