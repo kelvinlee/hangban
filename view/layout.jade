@@ -35,6 +35,7 @@ html(lang="en").no-js
 			if (typeof window.JSBridge != "undefined") {
 				window.JSBridge.controlToolbar(false);
 			}
+			window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
 			$(document).ready(function(){
 				if (browser.versions.ios) {
 					window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
