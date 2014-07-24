@@ -9,13 +9,15 @@ config = require('../config').config
 # 	database : config.db_database
 
 connectionthis = (callback)->
-	# connection.connect()
-	callback.call mysql.createConnection
+	
+	connection = mysql.createConnection
 		host: config.mydb
 		user: config.db_user
 		password : config.db_passwd
 		database : config.db_database
-	# connection.end()
+	connection.connect()
+	callback.call connection
+	connection.end()
 
 sql_select = (options) ->
 	if options.tbname?

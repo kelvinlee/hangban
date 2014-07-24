@@ -6,12 +6,16 @@ mysql = require('mysql');
 config = require('../config').config;
 
 connectionthis = function(callback) {
-  return callback.call(mysql.createConnection({
+  var connection;
+  connection = mysql.createConnection({
     host: config.mydb,
     user: config.db_user,
     password: config.db_passwd,
     database: config.db_database
-  }));
+  });
+  connection.connect();
+  callback.call(connection);
+  return connection.end();
 };
 
 sql_select = function(options) {

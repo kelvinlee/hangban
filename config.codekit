@@ -233,17 +233,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
-	"\/model\/mysql-class.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/model\/mysql-class.js",
-		"outputAbbreviatedPath": "\/model\/min\/mysql-class-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/model\/user.js": {
 		"fileType": 64,
 		"ignore": 1,
