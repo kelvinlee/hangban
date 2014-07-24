@@ -7,14 +7,16 @@ block content_here
 	div.content
 		.slider#mySlider
 			.slide-group
-				-for(var i=0;i<banner.length;i++)
-					.slide(onclick="gotopage('#{banner[i].href}')")
-						img(src="#{banner[i].url}")
+				-if (banner != null)
+					-for(var i=0;i<banner.length;i++)
+						.slide(onclick="gotopage('#{banner[i].href}')")
+							img(src="#{banner[i].url}")
 			.slide-point
-				-for(var i=0;i<banner.length;i++)
-					-var select = ""
-					-if (i == 0){select = "on"}
-					span(class="#{select}")
+				-if (banner != null)
+					-for(var i=0;i<banner.length;i++)
+						-var select = ""
+						-if (i == 0){select = "on"}
+						span(class="#{select}")
 
 		div.content-padded
 			-if (users.length>0)
