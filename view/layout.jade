@@ -11,6 +11,8 @@ html(lang="en").no-js
 		//- script(src="js/viewport.js")
 		link(rel="stylesheet",href="/css/ratchet.css")
 		link(rel="stylesheet",href="/css/main.css")
+		script(src="/js/ratchet.js")
+		script(src="/js/main.js")
 		script.
 			var browser={
 				versions:function(){
@@ -34,8 +36,8 @@ html(lang="en").no-js
 				window.JSBridge.controlToolbar(false);
 			}
 			$(document).ready(function(){
+				alert(browser.versions.ios);
 				if (browser.versions.ios) {
-					alert("test");
 					window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
 				}
 			});
@@ -48,8 +50,7 @@ html(lang="en").no-js
 			
 			block content_here
 
-			script(src="/js/ratchet.js")
-			script(src="/js/main.js")
+			
 			
 			block js_here
 			
