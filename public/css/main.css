@@ -252,6 +252,7 @@ img {
   padding: 10px;
   position: relative;
   background: #fff;
+  margin-bottom: 10px;
 }
 .activelist .item .description {
   padding-top: 10px;
