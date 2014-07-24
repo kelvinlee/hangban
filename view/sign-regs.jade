@@ -43,9 +43,11 @@ block content_here
 										div.logo-icon.pull-left
 											img(src="#{active[i].logo}")
 									div.des.pull-left
-										p 预约人数: 
-											span #{active[i].regs}
-											| /人
+										div.des.pull-left
+										p 活动时间: 
+											span #{active[i].startext}
+											|至
+											span #{active[i].endtext}
 										p 活动奖品:
 											span.lot #{active[i].lotext}
 					-else
