@@ -33,6 +33,11 @@ html(lang="en").no-js
 			if (typeof window.JSBridge != "undefined") {
 				window.JSBridge.controlToolbar(false);
 			}
+			$(document).ready(function(){
+				if (browser.versions.ios) {
+					window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
+				}
+			});
 		title
 			block title
 
@@ -46,9 +51,4 @@ html(lang="en").no-js
 			script(src="/js/main.js")
 			
 			block js_here
-			script.
-				$(document).ready(function(){
-					if (browser.versions.ios) {
-						window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
-					}
-				});
+			
