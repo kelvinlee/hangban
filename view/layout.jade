@@ -7,7 +7,7 @@ html(lang="en").no-js
 		meta(name="apple-mobile-web-app-capable",content="yes")
 		meta(name="apple-mobile-web-app-status-bar-style",content="black")
 		meta(name="format-detection",content="telephone=no")
-		meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0")
+		meta(name="viewport",content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi")
 		//- script(src="js/viewport.js")
 		link(rel="stylesheet",href="/css/ratchet.css")
 		link(rel="stylesheet",href="/css/main.css")
@@ -30,5 +30,7 @@ html(lang="en").no-js
 			block js_here
 			script.
 				$(document).ready(function(){
-					window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
+					if (typeof window.JSBridge == "undefined") {
+						window.location.href = "HbgjJsBridge://a?methods=hideToolbar";
+					}
 				});
