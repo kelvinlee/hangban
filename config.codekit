@@ -564,6 +564,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/public\/img\/06.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 35489,
+		"inputAbbreviatedPath": "\/public\/img\/06.jpg",
+		"outputAbbreviatedPath": "\/public\/img\/06.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/img\/a-01.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1103,6 +1114,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/public\/img\/banner-fl2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 40449,
+		"inputAbbreviatedPath": "\/public\/img\/banner-fl2.jpg",
+		"outputAbbreviatedPath": "\/public\/img\/banner-fl2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/img\/banner-X1.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -1297,6 +1319,17 @@
 		"initialSize": 10763,
 		"inputAbbreviatedPath": "\/public\/img\/logo-icon2.png",
 		"outputAbbreviatedPath": "\/public\/img\/logo-icon2.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/img\/logo-luhu.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13521,
+		"inputAbbreviatedPath": "\/public\/img\/logo-luhu.png",
+		"outputAbbreviatedPath": "\/public\/img\/logo-luhu.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -2706,6 +2739,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/public\/share\/weibo-fl2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 107214,
+		"inputAbbreviatedPath": "\/public\/share\/weibo-fl2.jpg",
+		"outputAbbreviatedPath": "\/public\/share\/weibo-fl2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/share\/weibo-maiteng.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -2757,6 +2801,17 @@
 		"initialSize": 24590,
 		"inputAbbreviatedPath": "\/public\/share\/weixin-2014ade.jpg",
 		"outputAbbreviatedPath": "\/public\/share\/weixin-2014ade.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/share\/weixin-fl2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 40928,
+		"inputAbbreviatedPath": "\/public\/share\/weixin-fl2.jpg",
+		"outputAbbreviatedPath": "\/public\/share\/weixin-fl2.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
