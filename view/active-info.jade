@@ -2,7 +2,9 @@ extends layout
 block title
 	| #{active.name}
 block content_here
-	div.content(style="padding-bottom:2px;")
+	-var color = "#000";
+	-if (active.id == 10) { color = "#fff"; }
+	div.content(style="padding-bottom:2px;background:#{color};")
 		iframe#main-iframe(src="#{active.href}",style="width:100%;min-height:100%;border:none;")
 
 	div(style="display:none;")
