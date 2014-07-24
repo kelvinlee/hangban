@@ -24,10 +24,11 @@ block content_here
 					div.icon
 						img(src="img/noded.png")
 					div.list
-						-for(var i=0;i<users.length;i++)
-							p #{users[i].newtime} #{users[i].username}(#{users[i].mobile})预约试驾成功!
-						//- p 1分钟前 王女士(138****8989)预约试驾成功!
-						//- p 1分钟前 王女士(138****8989)预约试驾成功!
+						-if (users != null) 
+							-for(var i=0;i<users.length;i++)
+								p #{users[i].newtime} #{users[i].username}(#{users[i].mobile})预约试驾成功!
+							//- p 1分钟前 王女士(138****8989)预约试驾成功!
+							//- p 1分钟前 王女士(138****8989)预约试驾成功!
 			div.btntrl.clearfix.hide
 				a.active.btn.pull-left(href="/")
 					span.icon
@@ -36,25 +37,26 @@ block content_here
 					span.icon
 					|  限时抢购
 			div.activelist
-				-for(var i=0;i<active.length;i++)
-					-var neworhot = ""
-					-if (active[i].neworhot == 1){ neworhot = "new" }
-					-if (active[i].neworhot == 2){ neworhot = "hot" }
-					div(class="item #{neworhot}")
-						a(href="/active/#{active[i].id}")
-							img(src="#{active[i].url}")
-						.description.clearfix
-							-if (active[i].logo == null)
-								//- div #{active[i].logo}
-							-else
-								div.logo-icon.pull-left
-									img(src="#{active[i].logo}")
-							div.des.pull-left
-								p 活动时间: 
-									span #{active[i].startext}
-									|至
-									span #{active[i].endtext}
-								p 活动奖品:
-									span.lot #{active[i].lotext}
+				-if (active != null) 
+					-for(var i=0;i<active.length;i++)
+						-var neworhot = ""
+						-if (active[i].neworhot == 1){ neworhot = "new" }
+						-if (active[i].neworhot == 2){ neworhot = "hot" }
+						div(class="item #{neworhot}")
+							a(href="/active/#{active[i].id}")
+								img(src="#{active[i].url}")
+							.description.clearfix
+								-if (active[i].logo == null)
+									//- div #{active[i].logo}
+								-else
+									div.logo-icon.pull-left
+										img(src="#{active[i].logo}")
+								div.des.pull-left
+									p 活动时间: 
+										span #{active[i].startext}
+										|至
+										span #{active[i].endtext}
+									p 活动奖品:
+										span.lot #{active[i].lotext}
 
 		//- p here is homepage
